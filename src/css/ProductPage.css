@@ -1,0 +1,131 @@
+/* #8307FF dark purple
+#615EF9 light purple
+#E1E1FA white
+#6E6E89 gray
+#F8CB62 yellow
+#09BA7A green */
+/* .product-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+background-color:#E1E1FA  ;
+height: 100vh;
+} */
+
+.product-page-container{
+    display: grid;
+    grid-template-columns:  1fr 0.5fr 0.5fr ;
+    grid-template-rows: 20% 60% 20%;
+    background-color:#615EF9 ;
+    height: 100vh;
+    width: 100vw;
+    grid-template-areas: 
+    "logo logo logo"
+    "img about buy"
+    "empty empty empty"
+    ;
+
+}
+
+.product-page-img{
+    background-image: url(/src/Misc/Biomutant.jpg);
+    background-size: 600px 600px;
+    background-position:center;
+    background-repeat: no-repeat;
+    grid-area: img;
+}
+
+
+
+.product-page-about{
+    color: #E1E1FA;
+    grid-area: about;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.product-page-btn{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    margin-bottom: 45px;
+    grid-area: buy;
+}
+
+.product-page-btn button{
+    color:#ffffff ;
+    border: none ;
+    background-color:#F8CB62  ;
+    padding:10px 70px;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.product-page-btn button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: #F8CB62;
+}
+
+.product-page-btn h2{
+    letter-spacing: 1px;
+    font-size: 30px;
+    color: #F8CB62;
+    height: 45px;
+    text-align: center;
+}
+
+.product-page .logo{
+    color: #F8CB62;
+    text-shadow: 4px 4px rgb(70, 70, 70);
+    letter-spacing: 2px;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: logo;
+    background-color: #E1E1FA;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px -50px 36px -28px inset;
+} 
+
+.product-page img{
+    filter: drop-shadow(4px 5px 2px rgb(63, 63, 63));
+    padding-right: 3px;
+    height: 45px;
+}
+
+.product-page-about h2{
+    font-size: 50px;
+    letter-spacing: 1.5px;
+}
+
+.product-page-about p{
+    text-align:justify;
+    font-size: 19px;
+    letter-spacing: 0.6px;
+}
+
+.product-about-text{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-about-text h4{
+    letter-spacing: 1.5px;
+}
+
+.empty{  
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 50px 36px -28px inset;
+    grid-area: empty;
+    background-color: #E1E1FA;
+}
+
+.empty .continue-shoping{
+   margin-top: 0;
+   margin-left: 80px;
+}

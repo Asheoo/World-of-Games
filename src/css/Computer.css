@@ -1,0 +1,103 @@
+/* #8307FF dark purple
+#615EF9 light purple
+#E1E1FA white
+#6E6E89 gray
+#F8CB62 yellow
+#09BA7A green */
+
+.pc-div{
+    background-color:rgb(54, 47, 47) ;
+}
+.computer-container{
+    display: flex;
+    min-height: 100vh;
+    /* background-color:#E1E1FA ; */
+    background-color:rgb(54, 47, 47);
+    position: relative;
+padding-top: 90px;
+    
+    width: 100vw;
+}
+
+.category-nav{
+ display: flex;
+ align-items: center;
+
+}
+
+.category{
+    display: flex;
+    position: sticky;
+    top: 100px;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 90vh;
+    list-style: none;
+   width: 12vw;
+   align-self: flex-start;
+   background-color: rgb(54, 47, 47);
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+}
+
+.category a{
+    text-decoration: none;
+    color:#E1E1FA ;
+}
+
+.pc-catalog-wrap{
+    background-color:#E1E1FA ;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(290px, max-content));
+    grid-gap: 16px;
+    justify-content: center;
+    /* margin-top: 100px; */
+    width: 88vw;
+    padding-top: 60px;
+}
+
+.pc-catalog-wrap article{
+    margin:30px 30px;
+}
+
+.pc-div .menu-wrapper{
+    background-color: rgb(27, 23, 23);
+    opacity: 1;
+}
+
+.pc-div .menu-wrapper::after{
+    display: none;
+}
+
+.category li a:hover {
+	box-shadow:  -100px 0px 120px -30px rgba(98, 248, 111, 0.2) inset;
+    border-right: 4px solid #09BA7A;
+	cursor: pointer;
+	color: #09BA7A;
+    border-top: 0;
+    border-bottom: 0;
+    transition: 0.5s;
+} 
+.category li a.active{
+	box-shadow:  -100px 0px 120px -30px rgba(98, 248, 111, 0.2) inset;
+    border-right: 4px solid #09BA7A;
+	cursor: pointer;
+	color: #09BA7A;
+    border-top: 0;
+    border-bottom: 0;
+    transition: 0.5s;
+    font-size: 22px;
+}
+
+.category li a{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-top: 1px solid #09BA7A;
+    border-bottom: 1px solid #09BA7A;
+transition: 0.5s;
+    height: 60px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    width: 100%;
+}

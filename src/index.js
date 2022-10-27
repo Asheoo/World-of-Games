@@ -1,17 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-
+import { Provider } from 'react-redux';
+import store from './redux/store/store';
+import { BrowserRouter } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+	<Provider store={store}>
+		<BrowserRouter>
+		<ScrollToTop></ScrollToTop>
+			<App />
+		</BrowserRouter>
+	</Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+window.addEventListener('scroll', function () {
+	const menuWrapper = document.querySelector('.menu-wrapper');
+	menuWrapper?.classList.toggle('sticky', window.scrollY > 0);
+});
+
+// let counter = 2;
+// setInterval(() => {
+// 	document.getElementById('radio' + counter).checked = true;
+// 	counter++;
+// 	if (counter > 3) {
+// 		counter = 1;
+// 	}
+// }, 5000);
+
+let counter = 2;
+if (window.location.pathname != '/cart') {
+	const imgSlider = setInterval(() => {
+		document.getElementById('radio' + counter).checked = true;
+		counter++;
+		if (counter > 3) {
+			counter = 1;
+		}
+		if (window.location.pathname == '/cart') {
+			clearInterval(imgSlider);
+			console.log('usao');
+		}
+	}, 5000);
+}
+
+
+
+
+

@@ -1,0 +1,287 @@
+/* #8307FF dark purple
+#615EF9 light purple
+#E1E1FA white
+#6E6E89 gray
+#F8CB62 yellow
+#09BA7A green */
+
+.shop-bg {
+	background-color: #ebebeb;
+}
+
+.shoping-cart {
+	display: flex;
+	min-height: 100vh;
+	color: #6e6e89;
+	padding: 0 100px;
+	padding-top: 100px;
+}
+
+.shop-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.shop-header p {
+	font-size: 24px;
+	letter-spacing: 1px;
+}
+
+.shop-header h2 {
+	letter-spacing: 1.5px;
+}
+
+.cart-wide {
+	flex: 3 1 0;
+	background-color: white;
+	padding: 70px;
+	display: flex;
+	flex-direction: column;
+}
+
+.cart-ul {
+	display: flex;
+	list-style: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 0px 30px;
+    padding-top: 30px;
+}
+
+.cart-ul :nth-child(1) {
+	flex: 4 1 0;
+}
+.cart-ul :nth-child(2) {
+	flex: 1 1 0;
+	display: flex;
+	justify-content: center;
+}
+.cart-ul :nth-child(3) {
+	flex: 1 1 0;
+	display: flex;
+	justify-content: center;
+}
+.cart-ul :nth-child(4) {
+	flex: 0 1 0;
+	display: flex;
+	justify-content: center;
+}
+
+
+.cart-card {
+	display: flex;
+	height: 250px;
+	margin: 30px 0;
+	flex: 4 1 0;
+}
+
+.cart-discount{
+	flex: 1 1 0;
+	display: flex;
+	justify-content: center;
+	padding-top: 70px;
+	font-size: 18px;
+}
+
+.cart-sale{
+	flex: 1 1 0;
+	display: flex;
+	justify-content: center;
+	padding-top: 70px;
+	font-size: 18px;
+	height: 90px;
+}
+
+.cart-total{
+	display: flex;
+	justify-content: center;
+
+	padding-top: 70px;
+	font-size: 20px;
+	font-weight:600;
+}
+
+
+.cart-wide div:nth-last-child(2) .hr hr {
+	display: none;
+}
+
+.cart-wide div:nth-last-child(2) .hr .cart-card {
+	margin-bottom: 70px;
+}
+
+.cart-about {
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+	height: 100%;
+}
+
+.cart-about h2 {
+	padding-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.cart-about p {
+	margin-top: auto;
+    letter-spacing: 0.7px;
+}
+
+.remove:hover {
+	cursor: pointer;
+	color: rgb(192, 103, 103);
+}
+
+.cart-img {
+	width: 200px;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+
+
+.cart-radio{
+    background-color: #615EF9;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: white;
+    padding: 8px 12px;
+    width: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-radio:hover{
+    cursor: pointer;
+}
+
+.cart-radio input{
+    accent-color: #F8CB62 ;
+}
+
+.cart-radio p{
+    letter-spacing: 2px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.continue-shoping{
+	margin-top: auto;
+	display: flex;
+	transition: 0.5s;
+	text-decoration: none;
+	color: #09BA7A ;
+	width: 240px;
+}
+
+.continue-shoping i{
+	font-size: 30px;
+	padding-right: 10px;
+}
+
+.continue-shoping:hover{
+	cursor: pointer;
+	scale: 1.03;
+	transition: 0.5s;
+}
+
+.hr{
+	transition: 0.5s;
+	
+}
+
+.sale-decor{
+	position: relative;
+}
+
+.sale-decor::before{
+	top: 50%; /*tweak this to adjust the vertical position if it's off a bit due to your font family */
+    background:red; /*this is the color of the line*/
+    opacity:.5;
+    content: '';
+    width: 110%;
+    position: absolute;
+    height:.1em;
+    border-radius:.1em;
+    left: -5%;
+    white-space:nowrap;
+    display: block;
+    transform: rotate(-15deg);
+}
+
+
+.cart-container{
+	display: flex;
+	margin-right: 44px;
+}
+
+.summary {
+	flex: 1 1 0;
+	background-color: #f8f8f8;
+	padding: 70px;
+	position: relative;
+	letter-spacing: 1.5px;
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - 100px);
+	position: sticky;
+	top: 100px;
+}
+
+
+
+.line {
+	height: 2px;
+	border-radius: 20px;
+	background-color: #a0a0a7;
+	width: 100%;
+	margin-top: 30px;
+}
+
+
+.order-items{
+	display: flex;
+	justify-content: space-between;
+	padding-top: 30px;
+}
+
+.order-shipping h3{
+	padding-top: 70px;
+	padding-bottom: 30px;
+}
+
+.line:nth-child(5){
+	margin-top: auto;
+}
+
+.order-total{
+	margin-top: 40px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.order-btn{
+	margin-top: 40px;
+	padding: 12px;
+	width: 100%;
+	align-self: center;
+	background-color:#F8CB62;
+	border: 1px solid white;
+	color: white;
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: 2px;
+}
+
+.order-btn:hover{
+	cursor: pointer;
+	background-color: white;
+	color:#F8CB62;
+	border: 1px solid #F8CB62;
+}
+
+
+
