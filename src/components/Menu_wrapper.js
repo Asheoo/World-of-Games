@@ -26,7 +26,7 @@ function Menu_wrapper() {
 					</li>
 					<li>
 						<NavLink
-							style={location.includes('http://localhost:3000/pc/:all/') ? { ...style1 } : null}
+							style={location.includes('/pc/:all/') ? { ...style1 } : null}
 							to="/pc/:all/all"
 						>
 							PC
@@ -34,7 +34,7 @@ function Menu_wrapper() {
 					</li>
 					<li>
 						<NavLink
-							style={location.includes('http://localhost:3000/playstation/:all/') ? { ...style1 } : null}
+							style={location.includes('/playstation/:all/') ? { ...style1 } : null}
 							to="/playstation/:all/all"
 						>
 							PlayStation
@@ -42,7 +42,7 @@ function Menu_wrapper() {
 					</li>
 					<li>
 						<NavLink
-							style={location.includes('http://localhost:3000/xbox/:all/') ? { ...style1 } : null}
+							style={location.includes('/xbox/:all/') ? { ...style1 } : null}
 							to="/xbox/:all/all"
 						>
 							Xbox
