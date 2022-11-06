@@ -86,7 +86,7 @@ function App() {
 				></Route>
 				<Route
 					path="/cart"
-					element={cartItems.length < 1 ? <Navigate to="/" /> : <ShopingCart></ShopingCart>}
+					element={cartItems.length < 1 ? <Navigate to={-1} /> : <ShopingCart></ShopingCart>}
 				></Route>
 				<Route path="*" element={<Navigate to="/" replace />}></Route>
 			</Routes>
