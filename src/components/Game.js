@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { openGame } from '../redux/slices/openGamePageSlice';
 
-function Game({ game }) {
+function Game({ game,delBorder,handleDelete,handleUpdate }) {
 	// const navigate = useNavigate();
 
 	// const exist = useSelector((state) => state?.cartItem.exist);
@@ -49,7 +49,7 @@ function Game({ game }) {
 
 	return (
 		
-		<div className='game-card-border' onClick={()=>{dispatch(openGame(game)) }}>
+		<div className={delBorder? "manage-game-border" : 'game-card-border'} onClick={()=>{!delBorder && dispatch(openGame(game)) }}>
 
 			<div style={{ backgroundImage: `url(${game.img_url})` }} className="card-img">
 				{newSale}
@@ -73,6 +73,14 @@ function Game({ game }) {
 					{game.name} <span>{game.relase_date}</span>
 				</h3>
 				<p>Publisher: {game.publisher}</p>
+{/* 
+				<button>Edit</button> */}
+				{delBorder?
+				<>
+				<button onClick={()=>{handleDelete(game)}} className="manage-btn delete">Delete</button>
+				<button className='manage-btn edit' onClick={()=>handleUpdate(game)}>Edit</button>
+				</>
+				: ''}
 			</div>
 		
 			</div>

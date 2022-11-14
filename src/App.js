@@ -9,6 +9,10 @@ import { createContext } from 'react';
 import Console from './components/Console';
 import ProductPage from './components/ProductPage';
 import useDidMountEffect from './customHooks/useDidMountEffect';
+import Products from './components/Products';
+
+import { db } from './config/firebase';
+import { set, ref, onValue, remove, update } from 'firebase/database';
 
 export const TypeContext = createContext();
 function App() {
@@ -42,23 +46,40 @@ function App() {
 
 	const cartItems = useSelector((state) => state?.cartItem.value);
 
+	
 	const [shuffleGames, setGames] = useState([]);
 	const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
 	const dispatch = useDispatch();
-
+	
+	// const [gameProduct,setGameProduct]=useState([])
 	useEffect(() => {
-		fetch('https://raw.githubusercontent.com/Asheoo/games.json/main/games.json')
-			.then((res) => res.json())
-			.then((result) => {
-				setGames(shuffle(result));
-				dispatch(addGame(result));
-			});
-	}, [exist]);
+		onValue(ref(db), (snapshop) => {
+			// setTodos([]);
+			const data = snapshop.val();
+			if (data !== null) {
+				// Object.values(data).map((game) => {
+				// 	setGameProduct((oldArray) => [...oldArray, game]);
+				// });
+				setGames(shuffle(Object.values(data)))
+				dispatch(addGame(Object.values(data)))
+				
+			}
+		});
+	}, []);
+	// useEffect(() => {
+	// 	fetch('https://raw.githubusercontent.com/Asheoo/games.json/main/games.json')
+	// 		.then((res) => res.json())
+	// 		.then((result) => {
+	// 			setGames(shuffle(result));
+	// 			dispatch(addGame(result));
+	// 		});
+	// }, [exist]);
 
 	return (
 		
 			<Routes>
 				<Route path="/" exact element={<Hero shuffleGames={shuffleGames}></Hero>}></Route>
+				<Route path='/products' element={<Products></Products>}></Route>
 				<Route path="/game" element={gamePageExist.length < 1 ? <Navigate to="/" /> : <ProductPage></ProductPage>}></Route>
 				<Route
 					path="/pc/*"

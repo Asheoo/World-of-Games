@@ -1,0 +1,75 @@
+.manage{
+    background-color: #e1e1fa;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+.manage h2{
+    margin: 50px 0;
+}
+
+.manage-inputs{
+    border: 2px solid #09BA7A;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.manage-inputs button{
+    height: 40px;
+    margin: 20px 0;
+    border: none;
+    background-color: #09BA7A;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.manage-inputs button:hover{
+    cursor: pointer;
+}
+
+.manage-inputs div{
+    margin: 20px 0;
+    display: flex;
+}
+.manage-inputs input{
+    height: 30px;
+    border: none;
+    width: 300px;
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.manage-inputs div p {
+    margin-left: 20px;
+}
+
+.manage-article{
+    margin-top: 50px ;
+}
+
+.manage-products{
+    max-width: 70vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.manage-btn{
+    margin: 10px 5px;
+    width: 60px;
+    height: 30px;
+    border: none;
+    letter-spacing: 0.7px;
+}
+
+.manage-btn:hover{
+    cursor: pointer;
+}
+
+.delete{
+    background-color: rgb(206, 50, 50);
+    color: white;
+}
