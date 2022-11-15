@@ -47,6 +47,10 @@ function Game({ game,delBorder,handleDelete,handleUpdate }) {
 		newSale = '';
 	}
 
+	const scrollToTop=()=>{
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+    }
+
 	return (
 		
 		<div className={delBorder? "manage-game-border" : 'game-card-border'} onClick={()=>{!delBorder && dispatch(openGame(game)) }}>
@@ -55,7 +59,7 @@ function Game({ game,delBorder,handleDelete,handleUpdate }) {
 				{newSale}
 				<div className="blur">
 					<p>
-						{game.curr_price} € <span>{game.sale}</span>
+						{game.curr_price} € <span>{game.sale !=0 ? game.sale : ''}</span>
 					</p>
 					<span
 						onClick={(e) => {
@@ -78,7 +82,7 @@ function Game({ game,delBorder,handleDelete,handleUpdate }) {
 				{delBorder?
 				<>
 				<button onClick={()=>{handleDelete(game)}} className="manage-btn delete">Delete</button>
-				<button className='manage-btn edit' onClick={()=>handleUpdate(game)}>Edit</button>
+				<button className='manage-btn edit' onClick={()=>{handleUpdate(game);scrollToTop()}}>Edit</button>
 				</>
 				: ''}
 			</div>

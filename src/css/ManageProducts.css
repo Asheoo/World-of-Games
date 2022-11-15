@@ -7,28 +7,58 @@
     padding-bottom: 100px;
 }
 
-.manage h2{
-    margin: 50px 0;
+.manage-inputs .add-edit{
+    font-size: 22px;
 }
 
+.manage h2{
+    margin: 50px 0;
+    color:#2a2a3d;
+    letter-spacing: 1px;
+    font-size: 30px;
+}
+
+
+
 .manage-inputs{
-    border: 2px solid #09BA7A;
+    border: 2px solid #5c5c72;
     padding: 20px 50px;
     display: flex;
     flex-direction: column;
 }
 
-.manage-inputs button{
+.manage-inputs .submit-btn{
     height: 40px;
     margin: 20px 0;
     border: none;
     background-color: #09BA7A;
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     letter-spacing: 1px;
+    width: 100%;
 }
-.manage-inputs button:hover{
+
+.manage-inputs .edit-btn{
+    background-color: #c59908;
+    height: 40px;
+    margin: 20px 0;
+    color: white;
+    border: none;
+    font-size: 24px;
+    letter-spacing: 1px;
+    width: 100%;
+   
+}
+
+.edit-btn:hover{
     cursor: pointer;
+}
+.submit-btn:hover{
+    cursor: pointer;
+}
+
+.error{
+    color: rgb(189, 22, 22);
 }
 
 .manage-inputs div{
@@ -72,4 +102,21 @@
 .delete{
     background-color: rgb(206, 50, 50);
     color: white;
+}
+
+.back-to-store{
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    background-color:#2a2a3d;
+    color: #e1e1fa;
+    padding: 15px;
+    border-radius:5px;
+    letter-spacing: 1px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.back-to-store:hover{
+    cursor: pointer;
 }

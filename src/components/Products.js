@@ -5,6 +5,8 @@ import { set, ref, onValue, remove, update } from 'firebase/database';
 import { useState, useEffect } from 'react';
 import Game from './Game';
 import '../css/ManageProducts.css';
+import ManageInputs from './ManageInputs';
+import { NavLink } from 'react-router-dom';
 
 function Products() {
 	const [productChange, setProductChange] = useState({});
@@ -12,9 +14,26 @@ function Products() {
 	const [isEdit, setIsEdit] = useState(false);
 	const [tempUuid, setTempUuid] = useState('');
 
-	const handleGameChange = (e) => {
-		setProductChange((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
-		console.log(games);
+	
+
+	const handleGameChange = (data) => {
+		setProductChange({...data});
+		update(ref(db, `/${tempUuid}`), {
+			...data,
+			uuid: tempUuid
+		});
+		setIsEdit(false);
+		
+		setProductChange({...productChange,name:'',curr_price:'',sale:"",img_url:"",publisher:"",relase_date:""});
+	};
+	console.log(productChange);
+	// const handleGameChange = (e) => {
+	// 	setProductChange((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
+	// 	console.log(games);
+	// };
+	const handleInputUpdate = (e) => {
+		// setProductChange((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
+		console.log(productChange);
 	};
 
 	//read
@@ -33,36 +52,43 @@ function Products() {
 	}, []);
 
 	//write
-	const writeToDataBase = () => {
+	const writeToDataBase = (data) => {
 		const uuid = uid();
 		set(ref(db, `/${uuid}`), {
-			productChange,
+			...data,
 			uuid
 		});
-		setProductChange('');
+		setProductChange({...productChange,name:'',curr_price:'',sale:"",img_url:"",publisher:"",relase_date:""});
 	};
 
 	//delete
 	const handleDelete = (game) => {
 		remove(ref(db, `/${game.uuid}`));
+		setProductChange({...productChange,name:'',curr_price:'',sale:"",img_url:"",publisher:"",relase_date:""});
 	};
 
 	//update
 	const handleUpdate = (game) => {
-		// setIsEdit(true);
+		setIsEdit(true);
 		setTempUuid(game.uuid);
+		// if(!game.sale){
+		// 	setProductChange({...game,sale:''})
+		// }else{
+		// 	setProductChange(game);
+		// }
 		setProductChange(game);
 	};
 
 	const handleSubmitChange = () => {
-		update(ref(db, `/${tempUuid}`), {
-			...productChange,
-			uuid: tempUuid
-		});
-        
-		setProductChange({...productChange,name:'',curr_price:'',sale:"",img_url:"",publisher:"",relase_date:""});
-        console.log(productChange);
-		// setIsEdit(false);
+		
+		// update(ref(db, `/${tempUuid}`), {
+		// 	...productChange,
+		// 	uuid: tempUuid
+		// });
+		// // setProductChange({...productChange,name:'',curr_price:'',sale:"",img_url:"",publisher:"",relase_date:""});
+        // console.log('');
+        // setIsEdit(false);
+	
 	};
 
     
@@ -85,7 +111,8 @@ function Products() {
 	return (
 		<div className="manage">
 			<h2>Manage Products</h2>
-			<div className="manage-inputs">
+			<NavLink to={-1} className='back-to-store'><i className="fa-solid fa-angle-left"></i> Back to store</NavLink>
+			{/* <div className="manage-inputs">
 				<div>
 					<input type="text" name="name" value={productChange?.name} onChange={handleGameChange} />
 					<p>Change name</p>
@@ -136,7 +163,10 @@ function Products() {
 					<p>Change relase date</p>
 				</div>
 				<button onClick={handleSubmitChange}>Submit</button>
-			</div>
+			</div> */}
+				<ManageInputs handleInputUpdate={handleInputUpdate} productChange={productChange} handleGameChange={handleGameChange} 
+				handleSubmitChange={handleSubmitChange} writeToDataBase={writeToDataBase} isEdit={isEdit}></ManageInputs>
+				
 			<div className="manage-products">{game}</div>
 			{/* <input type="text" value={todo} onChange={handleTodoChange} />
 			{isEdit ? (

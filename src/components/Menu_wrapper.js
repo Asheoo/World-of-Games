@@ -6,7 +6,7 @@ import { auth, provider } from '../config/firebase';
 import { signInWithPopup } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
-import { async } from '@firebase/util';
+
 
 function Menu_wrapper() {
 	const location = window.location.href;
@@ -63,7 +63,7 @@ function Menu_wrapper() {
 					</li>
 				</ul>
 			</div>
-			<div className="right-menu" style={user ? {width:"78vh"} : null}>
+			<div className="right-menu" style={user?.email==="veljkopopovic33@gmail.com" ? {width:'78vh'} : user ? { width: '65vh' }   : null}>
 				<Search></Search>
 
 				<NavLink to="/cart">
@@ -74,10 +74,16 @@ function Menu_wrapper() {
 						<p onClick={signInWithGoogle}>Login</p>
 					) : (
 						<>
-							<h4>{user?.displayName}</h4> 
-							<img src={user?.photoURL} alt="Profile Picture" />
-							<p onClick={signUserOut} className="logout">Sign out</p>
-							<NavLink to="/products">Manage Products</NavLink>
+							<h4>{user?.displayName}</h4>
+							<img src={user?.photoURL} alt="#" />
+							<p onClick={signUserOut} className="logout">
+								Sign out
+							</p>
+							{
+								(user.email === 'veljkopopovic33@gmail.com' && (
+									<NavLink to="/products">Manage Products</NavLink>
+								))
+							}
 						</>
 					)}
 				</div>

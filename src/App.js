@@ -11,11 +11,13 @@ import ProductPage from './components/ProductPage';
 import useDidMountEffect from './customHooks/useDidMountEffect';
 import Products from './components/Products';
 
-import { db } from './config/firebase';
+import { db,auth } from './config/firebase';
 import { set, ref, onValue, remove, update } from 'firebase/database';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 export const TypeContext = createContext();
 function App() {
+	const [user] = useAuthState(auth);
 	const navigate = useNavigate();
 	const openGamePage=useSelector((state)=>state?.openGamePage.openPage)
 	const gamePageExist=useSelector(state=>state?.openGamePage.value)
@@ -79,7 +81,7 @@ function App() {
 		
 			<Routes>
 				<Route path="/" exact element={<Hero shuffleGames={shuffleGames}></Hero>}></Route>
-				<Route path='/products' element={<Products></Products>}></Route>
+				<Route path='/products' element={user?.email==="veljkopopovic33@gmail.com" && <Products/>}></Route>
 				<Route path="/game" element={gamePageExist.length < 1 ? <Navigate to="/" /> : <ProductPage></ProductPage>}></Route>
 				<Route
 					path="/pc/*"
