@@ -29,7 +29,7 @@ function Menu_wrapper() {
 	return (
 		<div className="menu-wrapper">
 			<header>
-				<img src={require('../Misc/wog gray.png')} alt="Logo" />
+				<img src={'/assets/wog gray.png'} alt="Logo" />
 			</header>
 			<div className="menu">
 				<ul>
