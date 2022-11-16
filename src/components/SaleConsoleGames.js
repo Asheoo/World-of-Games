@@ -16,9 +16,9 @@ function SaleConsoleGames({games}){
 			);
 		});
     return(
-        <div className='pc-catalog-wrap'>
+        <section className='pc-catalog-wrap'>
         {pcGames}
-    </div>
+    </section>
     )
 }
 

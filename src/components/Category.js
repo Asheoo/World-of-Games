@@ -20,7 +20,7 @@ function Category() {
 					<NavLink to=":all/sale">Sale</NavLink>
 				</li>
 				<li>
-					<NavLink to=":all/free">Free</NavLink>
+					<NavLink to=":all/special">Special</NavLink>
 				</li>
 			</ul>
 		</div>

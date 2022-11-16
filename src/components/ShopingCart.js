@@ -47,7 +47,7 @@ function ShopingCart() {
 			<div className="shoping-cart">
 				<div className="cart-wide">
 					<div className="shop-header">
-						<h2>Shoping Cart</h2>
+						<h2>Shopping Cart</h2>
 						<h2>{numberOfItems} {numberOfItems<=1 ? "item" : "items"}</h2>
 					</div>
 					<div className="line"></div>
@@ -60,7 +60,7 @@ function ShopingCart() {
 					{allCartItems}
 					<NavLink to={-1} className='continue-shoping' onClick={()=>{dispatch(removeOpenGame())}}>
 						<i className="fa-solid fa-angle-left"></i>
-						<h2>Countinue shoping</h2>
+						<h2>Continue shoping</h2>
 					</NavLink>
 				</div>
 				<div className="summary">

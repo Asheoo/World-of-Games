@@ -63,7 +63,7 @@ function ProductPage() {
 				<div className="empty">
 				<NavLink to={-1} className='continue-shoping' onClick={()=>{dispatch(removeOpenGame())}}>
 						<i className="fa-solid fa-angle-left"></i>
-						<h2>Countinue shoping</h2>
+						<h2>Continue shoping</h2>
 					</NavLink>
 				</div>
 			</div>

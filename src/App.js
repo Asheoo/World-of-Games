@@ -9,7 +9,8 @@ import { createContext } from 'react';
 import Console from './components/Console';
 import ProductPage from './components/ProductPage';
 import useDidMountEffect from './customHooks/useDidMountEffect';
-import Products from './components/Products';
+import Products from './components/Products'
+import "./css/HeroMedia.css"
 
 import { db,auth } from './config/firebase';
 import { set, ref, onValue, remove, update } from 'firebase/database';

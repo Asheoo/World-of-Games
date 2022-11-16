@@ -11,7 +11,7 @@ function PopUp({enabled,removePopUp,color}){
     return(
     	<div>
         {enabled && (<div className='popup' style={color ? {backgroundColor:color}: null}>
-            <h3>Proizvod se vec nalazi u korpi </h3>
+            <h3>Game is already in cart</h3>
             <button onClick={()=>{dispatch(popUpOk(false));removePopUp(false)}}>OK</button>
         </div>)}
         </div>

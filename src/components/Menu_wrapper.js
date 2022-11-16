@@ -6,11 +6,12 @@ import { auth, provider } from '../config/firebase';
 import { signInWithPopup } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
-
+import HamburgerMenu from './HamburgerMenu';
+import { useState } from 'react';
 
 function Menu_wrapper() {
 	const location = window.location.href;
-
+	const [menu,setMenu]=useState(false)
 	const [user] = useAuthState(auth);
 	const style1 = {
 		borderBottom: '2px solid',
@@ -63,10 +64,19 @@ function Menu_wrapper() {
 					</li>
 				</ul>
 			</div>
-			<div className="right-menu" style={user?.email==="veljkopopovic33@gmail.com" ? {width:'78vh'} : user ? { width: '65vh' }   : null}>
+			<div
+				className="right-menu"
+				style={
+					user?.email === 'veljkopopovic33@gmail.com'
+						? { width: '78vh' }
+						: user
+						? { width: '65vh' }
+						: null
+				}
+			>
 				<Search></Search>
 
-				<NavLink to="/cart">
+				<NavLink to="/cart" className="cart-icon">
 					<i className="fa-solid fa-cart-shopping"></i>
 				</NavLink>
 				<div className="login">
@@ -79,15 +89,19 @@ function Menu_wrapper() {
 							<p onClick={signUserOut} className="logout">
 								Sign out
 							</p>
-							{
-								(user.email === 'veljkopopovic33@gmail.com' && (
-									<NavLink to="/products">Manage Products</NavLink>
-								))
-							}
+							{user.email === 'veljkopopovic33@gmail.com' && (
+								<NavLink to="/products">Manage Products</NavLink>
+							)}
 						</>
 					)}
 				</div>
 			</div>
+				<a href="#" className='toggle-button' onClick={()=>setMenu(!menu)}>
+					<span className="bar"></span>
+					<span className="bar"></span>
+					<span className="bar"></span>
+				</a>
+				{menu && <HamburgerMenu user={user} signInWithGoogle={signInWithGoogle} signUserOut={signUserOut}></HamburgerMenu>}
 		</div>
 	);
 }

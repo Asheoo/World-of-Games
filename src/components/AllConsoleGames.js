@@ -17,7 +17,7 @@ function AllConsoleGames({ games }) {
 	console.log(pcGames);
 	return (
 		
-			<div className="pc-catalog-wrap">{pcGames}</div>
+			<section className="pc-catalog-wrap">{pcGames}</section>
 		
 	);
 }

@@ -10,6 +10,7 @@ import AllConsoleGames from './AllConsoleGames';
 import NewConsoleGames from './NewConsoleGames';
 import SaleConsoleGames from './SaleConsoleGames';
 import { Navigate } from 'react-router-dom';
+import SpecialGames from './SpecialGames';
 
 function ConsolePage() {
 	const [showPopup, setShowPopup] = useState(false);
@@ -53,7 +54,7 @@ function ConsolePage() {
 					<Route path=":all/all" element={<AllConsoleGames games={games}  ></AllConsoleGames>}></Route>
 					<Route path=":all/new" element={<NewConsoleGames games={games}></NewConsoleGames>}></Route>
 					<Route path=":all/sale" element={<SaleConsoleGames games={games} ></SaleConsoleGames>}></Route>
-					<Route path=":all/free" element={<SaleConsoleGames games={games} ></SaleConsoleGames>}></Route>
+					<Route path=":all/special" element={<SpecialGames games={games}></SpecialGames>}></Route>
 				</Routes>
 			
 			
