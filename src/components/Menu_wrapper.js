@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Search from './Search';
 import logo from '../Misc/wog gray.png';
 import { auth, provider } from '../config/firebase';
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithPopup,signInWithRedirect } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import HamburgerMenu from './HamburgerMenu';
@@ -21,7 +21,7 @@ function Menu_wrapper() {
 
 	// console.log(location);
 	const signInWithGoogle = async () => {
-		const result = await signInWithPopup(auth, provider);
+		const result = await signInWithRedirect(auth, provider);
 	};
 	const signUserOut = async () => {
 		await signOut(auth);
