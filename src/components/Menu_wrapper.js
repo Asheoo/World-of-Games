@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import Search from './Search';
-import logo from '../Misc/wog gray.png';
+// import logo from '../Misc/wog gray.png';
 import { auth, provider } from '../config/firebase';
 import { signInWithPopup,signInWithRedirect } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -29,7 +29,7 @@ function Menu_wrapper() {
 	return (
 		<div className="menu-wrapper">
 			<header>
-				<img src={logo} alt="" />
+				<img src={require('../Misc/wog gray.png')} alt="Logo" />
 			</header>
 			<div className="menu">
 				<ul>
