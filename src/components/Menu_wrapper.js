@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Search from './Search';
 // import logo from '../Misc/wog gray.png';
 import { auth, provider } from '../config/firebase';
-import { signInWithPopup,signInWithRedirect } from 'firebase/auth';
+import { signInWithPopup, signInWithRedirect, onAuthStateChanged } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import HamburgerMenu from './HamburgerMenu';
@@ -11,7 +11,7 @@ import { useState } from 'react';
 
 function Menu_wrapper() {
 	const location = window.location.href;
-	const [menu,setMenu]=useState(false)
+	const [menu, setMenu] = useState(false);
 	const [user] = useAuthState(auth);
 	const style1 = {
 		borderBottom: '2px solid',
@@ -80,7 +80,61 @@ function Menu_wrapper() {
 					<i className="fa-solid fa-cart-shopping"></i>
 				</NavLink>
 				<div className="login">
-					{!user ? (
+					{auth.onAuthStateChanged(function (user) {
+						if (!user) {
+							<p onClick={signInWithGoogle}>Login</p>;
+						} else {
+							<>
+								<h4>{user?.displayName}</h4>
+								<img src={user?.photoURL} alt="#" />
+								<p onClick={signUserOut} className="logout">
+									Sign out
+								</p>
+								{user.email === 'veljkopopovic33@gmail.com' && (
+									<NavLink to="/products">Manage Products</NavLink>
+								)}
+							</>;
+						}
+					})}
+					{/* {onAuthStateChanged(auth, (user) => {
+						if (!user) {
+							<p onClick={signInWithGoogle}>Login</p>;
+						} else {
+							<>
+								<h4>{user?.displayName}</h4>
+								<img src={user?.photoURL} alt="#" />
+								<p onClick={signUserOut} className="logout">
+									Sign out
+								</p>
+								{user.email === 'veljkopopovic33@gmail.com' && (
+									<NavLink to="/products">Manage Products</NavLink>
+								)}
+							</>;
+						}
+					})} */}
+						{!user ? (
+						<p onClick={signInWithGoogle}>Login</p>
+					) : (
+						<>
+							<h4>{user?.displayName}</h4>
+							<img src={user?.photoURL} alt="#" />
+							<p onClick={signUserOut} className="logout">
+								Sign out
+							</p>
+							{user.email === 'veljkopopovic33@gmail.com' && (
+								<NavLink to="/products">Manage Products</NavLink>
+							)}
+						</>)}
+					{/* FirebaseAuth.instance
+  .authStateChanges()
+  .listen((User? user) {
+    if (user == null) {
+      print('User is currently signed out!');
+    } else {
+      print('User is signed in!');
+    }
+  }); */}
+					{/* {!user ? (
 						<p onClick={signInWithGoogle}>Login</p>
 					) : (
 						<>
@@ -93,15 +147,28 @@ function Menu_wrapper() {
 								<NavLink to="/products">Manage Products</NavLink>
 							)}
 						</>
-					)}
+					)} */}
 				</div>
 			</div>
-				<a href="#" className='toggle-button' onClick={(e)=>{e.preventDefault();setMenu(!menu)}}>
-					<span className="bar"></span>
-					<span className="bar"></span>
-					<span className="bar"></span>
-				</a>
-				{menu && <HamburgerMenu user={user} signInWithGoogle={signInWithGoogle} signUserOut={signUserOut}></HamburgerMenu>}
+			<a
+				href="#"
+				className="toggle-button"
+				onClick={(e) => {
+					e.preventDefault();
+					setMenu(!menu);
+				}}
+			>
+				<span className="bar"></span>
+				<span className="bar"></span>
+				<span className="bar"></span>
+			</a>
+			{menu && (
+				<HamburgerMenu
+					user={user}
+					signInWithGoogle={signInWithGoogle}
+					signUserOut={signUserOut}
+				></HamburgerMenu>
+			)}
 		</div>
 	);
 }

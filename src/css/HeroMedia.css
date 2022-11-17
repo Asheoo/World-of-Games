@@ -52,8 +52,8 @@
 }
 .back-to-store-media{
   position: fixed;
-  top: 30px;
-  left: 20px;
+  bottom: 30px;
+  left: 10px;
   background-color:#2a2a3d;
   color: #e1e1fa;
   padding: 5px 10px;
@@ -70,7 +70,7 @@
     .pc-catalog-wrap{grid-template-columns: repeat(1, minmax(290px, max-content));}
     .menu{display: none;}
     .toggle-button{display: flex;}
-    /* .game-card{width: 200px; } */
+    .computer-container .game-card{width: 200px; }
     .wrap-img{
       display: none;
     }
