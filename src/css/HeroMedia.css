@@ -37,14 +37,170 @@
     .right-menu{display: none;}
     .menu{width: 50vw;}
     .toggle-button{display: flex;}
+    .navigation-auto{
+      display: none;
+    }
+
+    .navigation-manual{
+      display: none;
+    }
   }  
+
+@media (max-width:1080px) {
+  .back-to-store{
+   display: none;
+}
+.back-to-store-media{
+  position: fixed;
+  top: 30px;
+  left: 20px;
+  background-color:#2a2a3d;
+  color: #e1e1fa;
+  padding: 5px 10px;
+  border-radius:5px;
+  letter-spacing: 1px;
+  font-size: 30px;
+  text-decoration: none;
+  display: flex;
+}
+}
 
 @media (max-width: 900px) {
     .main-catalog-wrap { grid-template-columns: repeat(1, minmax(290px, max-content)); }
     .pc-catalog-wrap{grid-template-columns: repeat(1, minmax(290px, max-content));}
     .menu{display: none;}
     .toggle-button{display: flex;}
-    .game-card{width: 200px; }
+    /* .game-card{width: 200px; } */
+    .wrap-img{
+      display: none;
+    }
+    .hero-bg{
+      background-color: #4158D0;
+background-image: linear-gradient(43deg, #2e4097 0%, #710d99 46%, #e4a93b 100%);
+      height: 110vh;
+    }
+    .sekcija-one{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    .main-logo {
+      /* background-image: url(/src/Misc/WoW-logo.png); */
+      height: 15vh;
+      background-size: contain;
+      background-repeat: no-repeat;
+      /* width:52vw; */
+      width:200px;
+     
+      align-self: center;
+      margin-top: 30px;
+      margin-right:0;
+      z-index: 1;
+    }
+
+    /* .main-info{
+      margin: 0;
+    } */
+    .main-info {
+      width: 50vw;
+      min-width: 300px;
+      margin-left: 0;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 70vh;
+     
+    }
+
+    .main-info h2{
+      font-size: 20px;
+    }
+    .main-info p{
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    .navigation-auto{
+      display: none;
+    }
+
+    .navigation-manual{
+      display: none;
+    }
+
+
+    .price-btn{
+      margin-top: 20px;
+
+    }
+    .price-btn p{
+      font-size: 26px;
+      color:#f8cb62
+    }
+    .price-btn button{
+      padding: 10px 20px;
+      font-size: 22px;
+    }
+
+
+
+
+
+
+    
+.manage-inputs{
+  border: 2px solid #5c5c72;
+  padding: 10px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.manage-inputs .submit-btn{
+  height: 40px;
+  margin: 20px 0;
+  border: none;
+  background-color: #09BA7A;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 1px;
+  
+}
+
+.manage-inputs .edit-btn{
+  background-color: #c59908;
+  height: 40px;
+  margin: 20px 0;
+  color: white;
+  border: none;
+  font-size: 20px;
+  letter-spacing: 1px;
+
+ 
+}
+
+
+.manage-inputs div{
+  margin: 20px 0;
+  display: flex;
+}
+.manage-inputs input{
+  height: 30px;
+  border: none;
+  max-width: 150px;
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+.manage-inputs div p {
+  margin-left: 20px;
+}
+
+    
   }  
 
 

@@ -13,7 +13,7 @@ function GameWrap({game,index}) {
 		
         <div  >
 
-			<img src={game.wrap_img} />
+			<img src={game.wrap_img} className="wrap-img"/>
 			<div className="sekcija-one">
 				<div style={{ backgroundImage: `url(${game.logo})` }}  className="main-logo"></div>
 				<div className="main-info">

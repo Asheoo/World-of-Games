@@ -315,6 +315,7 @@ margin-bottom: 30px;
 	width: 100vw;
 	position: absolute;
 }
+
 /* .main-section{
     position: absolute;
 	display: flex;
@@ -461,6 +462,7 @@ margin-bottom: 30px;
 .manual-btn:hover {
 	background: #f8cb62;
 }
+
 
 #radio1:checked ~ .first {
 	margin-left: 0;

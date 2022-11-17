@@ -79,12 +79,19 @@
 
 .manage-article{
     margin-top: 50px ;
+   
+}
+
+.manage-game-border{
+    width: 250px;
+    margin-bottom: 30px;
 }
 
 .manage-products{
-    max-width: 70vw;
+    width: 70vw;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .manage-btn{
@@ -115,6 +122,10 @@
     letter-spacing: 1px;
     font-size: 20px;
     text-decoration: none;
+}
+
+.back-to-store-media{
+    display: none;
 }
 
 .back-to-store:hover{

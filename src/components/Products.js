@@ -112,6 +112,8 @@ function Products() {
 		<div className="manage">
 			<h2>Manage Products</h2>
 			<NavLink to={-1} className='back-to-store'><i className="fa-solid fa-angle-left"></i> Back to store</NavLink>
+			<NavLink to={-1} className='back-to-store-media'><i className="fa-solid fa-angle-left"></i></NavLink>
+
 			{/* <div className="manage-inputs">
 				<div>
 					<input type="text" name="name" value={productChange?.name} onChange={handleGameChange} />

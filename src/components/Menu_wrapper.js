@@ -96,7 +96,7 @@ function Menu_wrapper() {
 					)}
 				</div>
 			</div>
-				<a href="#" className='toggle-button' onClick={()=>setMenu(!menu)}>
+				<a href="#" className='toggle-button' onClick={(e)=>{e.preventDefault();setMenu(!menu)}}>
 					<span className="bar"></span>
 					<span className="bar"></span>
 					<span className="bar"></span>
