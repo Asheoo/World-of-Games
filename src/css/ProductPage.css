@@ -17,7 +17,7 @@ height: 100vh;
     grid-template-columns:  1fr 0.5fr 0.5fr ;
     grid-template-rows: 20% 60% 20%;
     background-color:#615EF9 ;
-    height: 100vh;
+    height: 130vh;
     width: 100vw;
     grid-template-areas: 
     "logo logo logo"
@@ -43,6 +43,7 @@ height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    background-color: #615EF9;
 }
 
 .product-page-btn{

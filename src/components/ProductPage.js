@@ -40,7 +40,10 @@ function ProductPage() {
 						W<img src={logo} alt="" />
 						rld of Games{' '}
 					</h1>
+				<img src={'/assets/wog gray.png'} alt="Logo" className='res-logo' />
+
 				</div>
+
 				<div className="product-page-about">
 					<h2>{game.name}</h2>
 					<div className="product-about-text">

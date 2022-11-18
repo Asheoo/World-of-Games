@@ -28,6 +28,51 @@
     .login{display: none;}
     .right-menu {width: 28% !important; justify-content: space-around; margin-right: 70px;}
     .toggle-button{display: flex;}
+    .product-page-container{
+      display: grid;
+      grid-template-columns:  1fr 0.5fr 0.5fr ;
+      grid-template-rows: 20% 70% 30% 15% 10%;
+      background-color:#615EF9 ;
+      min-height: 100vh;
+      width: 100vw;
+      grid-template-areas: 
+      "logo logo logo"
+      "img img img"
+      "about about about"
+      "buy buy buy"
+      "empty empty empty"
+      ;
+  }
+  .product-page-img{
+    margin-bottom: 30px;
+   
+  }
+
+  .product-page-about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  .product-page-about h2{
+    padding: 30px 40px;
+    font-size: 40px;
+    letter-spacing: 1.5px;
+}
+
+.product-page-about p{
+  margin: 0 40px;
+}
+.product-page-about h4{
+  margin-top: 30px;
+  margin: 30px 40px 0px;
+}
+
+.product-page-btn{
+  background-color: #615EF9;
+  margin: 0;
+  padding-bottom: 40px;
+}
   
   }
 
@@ -183,6 +228,10 @@ background-image: linear-gradient(43deg, #2e4097 0%, #710d99 46%, #e4a93b 100%);
  
 }
 
+.manage-article{
+  margin-bottom: 20px;
+}
+
 
 .manage-inputs div{
   margin: 20px 0;
@@ -200,8 +249,58 @@ background-image: linear-gradient(43deg, #2e4097 0%, #710d99 46%, #e4a93b 100%);
   margin-left: 20px;
 }
 
-    
+
+.product-page-container{
+  grid-template-rows: 20% 70% 40% 15% 10%;
+}
+
+
+ 
   }  
+  
+@media (max-width:624px) {
+  .product-page-container{
+    grid-template-rows: 20% 40% 50% 15% 10%;
+  }
+  
+  .logo h1{
+    display: none;
+  }
+  .logo{
+    height: 150px;
+  }
+  .product-page-img{
+    background-size: contain;
+    margin-bottom: 0;
+    
+  }
+  
+  .product-page-about h2{
+    
+    font-size: 30px;
+   
+}
+
+.product-page-about p{
+ font-size: 16px;
+ text-align:left;
+}
+.product-page-about h4{
+  font-size: 16px;
+}
+
+.product-page-btn{
+  background-color: #615EF9;
+  margin: 0;
+  padding-bottom: 40px;
+}
+}  
+
+@media (max-width:380px){
+  .product-page-container{
+    grid-template-rows: 20% 40% 60% 15% 10%;
+  }
+}
 
 
 
@@ -228,6 +327,13 @@ background-image: linear-gradient(43deg, #2e4097 0%, #710d99 46%, #e4a93b 100%);
 .hamburger-menu-menu{
   display: none;
 }
+
+  }
+
+  @media (min-width:600px) {
+    .res-logo{
+      display: none;
+    }
   }
 
 
