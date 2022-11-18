@@ -9,10 +9,10 @@ import { changeExist } from '../redux/slices/cartItemSlice';
 import { useDispatch } from 'react-redux';
 import { removeOpenGame } from '../redux/slices/openGamePageSlice';
 function ShopingCart() {
-	const dispatch=useDispatch()
-	const scrollDown=useSelector(state=>state?.cartItem.exist)
+	const dispatch = useDispatch();
+	const scrollDown = useSelector((state) => state?.cartItem.exist);
 	const cartItems = useSelector((state) => state?.cartItem.value);
-	let numberOfItems=0
+	let numberOfItems = 0;
 	// const uniqueIds=[]
 	// const filterDuplicates=cartItems.filter(element=>{
 	// 	const isDuplicate=uniqueIds.includes(element.id);
@@ -22,33 +22,34 @@ function ShopingCart() {
 	// 		return true
 	// 	}
 
-		
 	// 	return false
 
 	// })
-	useEffect(()=>{
+	useEffect(() => {
 		window.scroll({
 			top: document.body.offsetHeight,
-			left: 0, 
-		  });
-	},[scrollDown])
+			left: 0
+		});
+	}, [scrollDown]);
 
-	const allCartItems =cartItems.map((item, index) => {
-		numberOfItems=index+1
+	const allCartItems = cartItems.map((item, index) => {
+		numberOfItems = index + 1;
 		return (
 			<div key={item.id}>
 				<CartItem game={item} index={index}></CartItem>
 			</div>
 		);
 	});
-	
+
 	return (
-		<div className="shop-bg">
+		<div className="shop-bg nonres-shop">
 			<div className="shoping-cart">
 				<div className="cart-wide">
 					<div className="shop-header">
 						<h2>Shopping Cart</h2>
-						<h2>{numberOfItems} {numberOfItems<=1 ? "item" : "items"}</h2>
+						<h2>
+							{numberOfItems} {numberOfItems <= 1 ? 'item' : 'items'}
+						</h2>
 					</div>
 					<div className="line"></div>
 					<ul className="cart-ul">
@@ -58,14 +59,18 @@ function ShopingCart() {
 						<li>total</li>
 					</ul>
 					{allCartItems}
-					<NavLink to={-1} className='continue-shoping' onClick={()=>{dispatch(removeOpenGame())}}>
+					<NavLink
+						to={-1}
+						className="continue-shoping"
+						onClick={() => {
+							dispatch(removeOpenGame());
+						}}
+					>
 						<i className="fa-solid fa-angle-left"></i>
 						<h2>Continue shoping</h2>
 					</NavLink>
 				</div>
 				<div className="summary">
-				
-
 					<Summary numberOfItems={numberOfItems} cartItems={cartItems}></Summary>
 				</div>
 			</div>

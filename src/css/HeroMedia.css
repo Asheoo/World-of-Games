@@ -89,6 +89,31 @@
     .navigation-manual{
       display: none;
     }
+    .shoping-cart{
+      flex-direction: column;
+      padding: 0 !important;
+    }
+
+    /* .cart-wide{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows:1fr;
+      grid-template-areas:
+        "header header"
+        "line line"
+        "product-details product-details"
+        "product-details-card product-details-card"
+        "discount discount"
+        "discount-card discount-card"
+        "price price"
+        "price-card price-card"
+        "total total"
+        "total-card total-card"
+        "continue-btn continue-btn"
+      ;
+    } */
+   
+
   }  
 
 @media (max-width:1080px) {
@@ -108,6 +133,8 @@
   text-decoration: none;
   display: flex;
 }
+
+
 }
 
 @media (max-width: 900px) {
@@ -255,10 +282,44 @@ background-image: linear-gradient(43deg, #2e4097 0%, #710d99 46%, #e4a93b 100%);
 }
 
 
+
+
+
+.cart-ul li:not(:last-child){
+  display: none;
+}
+
+.cart-ul{
+  justify-content: right;
+}
+.cart-discount{
+  display: none;
+}
+
+.cart-sale{
+  display: none;
+}
+
+.cart-wide{
+  padding: 60px 10px;
+}
+.summary{
+  padding: 60px 10px;
+}
  
   }  
   
 @media (max-width:624px) {
+  .container{
+    padding: 0;
+  }
+  .container h2{
+    text-align: center;
+    font-size: 26px;
+  }
+  .card-img{
+   height: 350px;
+  }
   .product-page-container{
     grid-template-rows: 20% 40% 50% 15% 10%;
   }
@@ -294,7 +355,21 @@ background-image: linear-gradient(43deg, #2e4097 0%, #710d99 46%, #e4a93b 100%);
   margin: 0;
   padding-bottom: 40px;
 }
-}  
+} 
+
+@media (max-width:440px){
+  .cart-img{
+    height: 800px;
+    background-repeat: no-repeat;
+  }
+  .cart-card{
+    flex-direction: column;
+    height: 550px;
+  }
+  .cart-about{
+    margin-top: 15px;
+  }
+}
 
 @media (max-width:380px){
   .product-page-container{
@@ -311,7 +386,8 @@ background-image: linear-gradient(43deg, #2e4097 0%, #710d99 46%, #e4a93b 100%);
     }
   }
 
-  @media (min-width: 1280px){
+  @media (min-width: 1281px){
+    
     .hamburger-menu .search{
       display: none;
     }
