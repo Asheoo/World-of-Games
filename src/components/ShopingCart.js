@@ -67,7 +67,7 @@ function ShopingCart() {
 						}}
 					>
 						<i className="fa-solid fa-angle-left"></i>
-						<h2>Continue shoping</h2>
+						<h2>Continue shopping</h2>
 					</NavLink>
 				</div>
 				<div className="summary">

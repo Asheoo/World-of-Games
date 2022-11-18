@@ -80,7 +80,7 @@ function Menu_wrapper() {
 					<i className="fa-solid fa-cart-shopping"></i>
 				</NavLink>
 				<div className="login">
-					{auth.onAuthStateChanged(function (user) {
+					{/* {auth.onAuthStateChanged(function (user) {
 						if (!user) {
 							<p onClick={signInWithGoogle}>Login</p>;
 						} else {
@@ -95,7 +95,7 @@ function Menu_wrapper() {
 								)}
 							</>;
 						}
-					})}
+					})} */}
 					{/* {onAuthStateChanged(auth, (user) => {
 						if (!user) {
 							<p onClick={signInWithGoogle}>Login</p>;

@@ -487,7 +487,8 @@ margin-bottom: 30px;
 	/* padding: 0 200px; */
 	padding: 0 20vh;
 	background-color: #e1e1fa;
-	min-height: 170vh;
+	/* min-height: 170vh; */
+	min-height: 140vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -511,7 +512,7 @@ margin-bottom: 30px;
 
 .recommended{
 	min-height:60vh;
-	margin-top: 50px;
+	/* margin-top: 50px; */
 
 }
 
