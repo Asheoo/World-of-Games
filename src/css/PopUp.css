@@ -32,10 +32,44 @@
     letter-spacing: 1px;
     color: #35354e;
 }
-.popup button:hover{
+
+.popup button:hover, .popup a:hover{
     cursor: pointer;
     background-color: #35354e;
     border: 1px solid white;
     color: white;
 }
 
+.popup a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #35354e;
+    text-decoration: none;
+    background-color: white;
+}
+
+.popup div{
+	width: 250px;
+	display: flex;
+	justify-content: space-between;
+}
+/* .login-x-btn{
+	width: 115px !important;
+} */
+
+.popup div button:nth-child(1){
+	width: 115px
+}
+.popup div button:nth-child(2){
+	width: 40px;
+	color: rgb(197, 63, 63);
+	
+}

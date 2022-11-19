@@ -31,10 +31,14 @@ export const cartItemSlice = createSlice({
 		popUpOk:(state,action)=>{
 			state.stayOnPage=action.payload
 			// console.log(state.stayOnPage,"usao u popupok");
+		},
+		removeAllCartItems:(state)=>{
+			console.log('usao');
+			state.value=[]
 		}
 	}
 });
 
-export const { addCartItem, removeCartItem, popUpOk } = cartItemSlice.actions;
+export const { addCartItem, removeCartItem, popUpOk,removeAllCartItems } = cartItemSlice.actions;
 
 export default cartItemSlice.reducer;

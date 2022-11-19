@@ -8,8 +8,11 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import HamburgerMenu from './HamburgerMenu';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import PopUp from './PopUp';
 
 function Menu_wrapper() {
+	const cartItems = useSelector((state) => state?.cartItem.value);
 	const location = window.location.href;
 	const [menu, setMenu] = useState(false);
 	const [user] = useAuthState(auth);
@@ -18,6 +21,7 @@ function Menu_wrapper() {
 		boxShadow: 'rgba(248, 203, 98, 0.2) 0px -50px 36px -28px inset',
 		color: '#f8cb62'
 	};
+	const [enabled,setEnabled]=useState(false)
 
 	// console.log(location);
 	const signInWithGoogle = async () => {
@@ -26,6 +30,15 @@ function Menu_wrapper() {
 	const signUserOut = async () => {
 		await signOut(auth);
 	};
+
+	const handlePopup=()=>{
+		setEnabled(true)
+	}
+
+	const removePopUp=()=>{
+		setEnabled(false)
+	}
+	console.log(enabled);
 	return (
 		<div className="menu-wrapper">
 			<header>
@@ -76,9 +89,19 @@ function Menu_wrapper() {
 			>
 				<Search></Search>
 
-				<NavLink to="/cart" className="cart-icon">
+
+				{
+					cartItems<1 ? <NavLink  className="cart-icon">
+						<PopUp enabled={enabled} text={true} removePopUp={removePopUp}></PopUp>
+					<i onClick={handlePopup} className="fa-solid fa-cart-shopping"></i>
+				</NavLink> : <NavLink to="/cart" className="cart-icon">
 					<i className="fa-solid fa-cart-shopping"></i>
 				</NavLink>
+				}
+				{/* <NavLink to="/cart" className="cart-icon">
+					<i className="fa-solid fa-cart-shopping"></i>
+				</NavLink> */}
+				
 				<div className="login">
 					{/* {auth.onAuthStateChanged(function (user) {
 						if (!user) {

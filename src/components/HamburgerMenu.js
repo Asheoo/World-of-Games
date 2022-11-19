@@ -2,15 +2,34 @@ import React, { Component } from 'react';
 import '../css/HamburgerMenu.css';
 import Search from './Search';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import PopUp from './PopUp';
 
 function HamburgerMenu({ user, signInWithGoogle, signUserOut }) {
+	const cartItems = useSelector((state) => state?.cartItem.value);
+	const [enabled, setEnabled] = useState(false);
+	const handlePopup = () => {
+		setEnabled(true);
+	};
+
+	const removePopUp = () => {
+		setEnabled(false);
+	};
 	return (
 		<div className="hamburger-menu">
 			<div className="hamburger-right-menu">
 				<Search></Search>
-				<NavLink to="/cart" className="cart-icon">
-					<i className="fa-solid fa-cart-shopping"></i>
-				</NavLink>
+				{cartItems < 1 ? (
+					<NavLink className="cart-icon">
+						<PopUp enabled={enabled} text={true} removePopUp={removePopUp}></PopUp>
+						<i onClick={handlePopup} className="fa-solid fa-cart-shopping"></i>
+					</NavLink>
+				) : (
+					<NavLink to="/cart" className="cart-icon">
+						<i className="fa-solid fa-cart-shopping"></i>
+					</NavLink>
+				)}
 				<div>
 					<div className="hamburger-menu-menu">
 						<ul>

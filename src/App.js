@@ -15,6 +15,7 @@ import "./css/HeroMedia.css"
 import { db,auth } from './config/firebase';
 import { set, ref, onValue, remove, update } from 'firebase/database';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import SummaryPopUp from './components/SummaryPopUp';
 
 export const TypeContext = createContext();
 function App() {
@@ -77,10 +78,10 @@ function App() {
 	// 			dispatch(addGame(result));
 	// 		});
 	// }, [exist]);
-
+	
 	return (
 		
-			<Routes>
+		<Routes>
 				<Route path="/" exact element={<Hero shuffleGames={shuffleGames}></Hero>}></Route>
 				<Route path='/products' element={user?.email==="veljkopopovic33@gmail.com" && <Products/>}></Route>
 				<Route path="/game" element={gamePageExist.length < 1 ? <Navigate to="/" /> : <ProductPage></ProductPage>}></Route>
@@ -111,6 +112,7 @@ function App() {
 				<Route
 					path="/cart"
 					element={cartItems.length < 1 ? <Navigate to={-1} /> : <ShopingCart></ShopingCart>}
+			
 				></Route>
 				<Route path="*" element={<Navigate to="/" replace />}></Route>
 			</Routes>

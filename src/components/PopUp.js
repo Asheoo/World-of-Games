@@ -5,13 +5,13 @@ import { useDispatch } from 'react-redux';
 import { popUpOk } from '../redux/slices/cartItemSlice';
 
 
-function PopUp({enabled,removePopUp,color}){
+function PopUp({enabled,removePopUp,color,text}){
     const dispatch=useDispatch()
     // console.log(enabled);
     return(
     	<div>
         {enabled && (<div className='popup' style={color ? {backgroundColor:color}: null}>
-            <h3>Game is already in cart</h3>
+           {text ? <h3>Cart is empty</h3> : <h3>Game is already in cart</h3> } 
             <button onClick={()=>{dispatch(popUpOk(false));removePopUp(false)}}>OK</button>
         </div>)}
         </div>
