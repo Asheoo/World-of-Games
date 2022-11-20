@@ -23,6 +23,10 @@ input[type='search']::-webkit-search-results-decoration {
 	font-family: 'Lato', sans-serif;
 }
 
+html,body{
+	width: 100%;
+	overflow-x: hidden;
+}
 html{
 	width:100vw;
 }
