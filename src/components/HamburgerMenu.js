@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../css/HamburgerMenu.css';
 import Search from './Search';
 import { NavLink } from 'react-router-dom';

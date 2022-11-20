@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Select from 'react-select';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth} from '../config/firebase';

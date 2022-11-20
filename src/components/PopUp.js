@@ -1,4 +1,3 @@
-import React from 'react';
 import '../css/PopUp.css';
 import { useDispatch } from 'react-redux';
 import { popUpOk } from '../redux/slices/cartItemSlice';

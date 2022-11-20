@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../css/Computer.css';
 import Category from './Category';
 import { useSelector } from 'react-redux';

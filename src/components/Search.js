@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import '../css/Search.css';
 import { openGame } from '../redux/slices/openGamePageSlice';

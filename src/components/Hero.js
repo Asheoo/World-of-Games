@@ -1,4 +1,3 @@
-import React from 'react';
 import Imgs from './Imgs';
 import Menu_wrapper from './Menu_wrapper';
 import NavigationManual from './NavigationManual';

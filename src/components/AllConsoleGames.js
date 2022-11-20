@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import Game from './Game';
 import { TypeContext } from '../App';
 
@@ -13,7 +13,6 @@ function AllConsoleGames({ games }) {
 				</article>
 			);
 		});
-	console.log(pcGames);
 	return (
 		
 			<section className="pc-catalog-wrap">{pcGames}</section>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../css/ProductPage.css';
 import logo from '../Misc/wog earth.png';
 import useDidMountEffect from '../customHooks/useDidMountEffect';

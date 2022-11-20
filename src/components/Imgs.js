@@ -1,4 +1,3 @@
-import React from 'react';
 import GameWrap from './GameWrap';
 
 function Imgs({ shuffleGames }) {

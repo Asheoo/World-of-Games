@@ -1,4 +1,3 @@
-import React from 'react';
 import Menu_wrapper from './Menu_wrapper';
 import ConsolePage from './ConsolePage';
 

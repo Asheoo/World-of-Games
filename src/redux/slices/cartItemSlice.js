@@ -27,7 +27,7 @@ export const cartItemSlice = createSlice({
 			state.stayOnPage = action.payload;
 		},
 		removeAllCartItems: (state) => {
-			console.log('usao');
+		
 			state.value = [];
 		}
 	}
