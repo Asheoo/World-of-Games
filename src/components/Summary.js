@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select';
-import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth} from '../config/firebase';
 import SummaryPopUp from './SummaryPopUp';

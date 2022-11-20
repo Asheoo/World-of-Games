@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../config/firebase';
 import { useDispatch } from 'react-redux';

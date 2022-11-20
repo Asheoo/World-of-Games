@@ -1,30 +1,15 @@
-import React, { Component, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector,useDispatch } from 'react-redux';
 import CartItem from './CartItem';
-import Menu_wrapper from './Menu_wrapper';
 import '../css/Shop.css';
 import { NavLink } from 'react-router-dom';
 import Summary from './Summary';
-import { changeExist } from '../redux/slices/cartItemSlice';
-import { useDispatch } from 'react-redux';
 import { removeOpenGame } from '../redux/slices/openGamePageSlice';
 function ShopingCart() {
 	const dispatch = useDispatch();
 	const scrollDown = useSelector((state) => state?.cartItem.exist);
 	const cartItems = useSelector((state) => state?.cartItem.value);
 	let numberOfItems = 0;
-	// const uniqueIds=[]
-	// const filterDuplicates=cartItems.filter(element=>{
-	// 	const isDuplicate=uniqueIds.includes(element.id);
-
-	// 	if (!isDuplicate){
-	// 		uniqueIds.push(element.id)
-	// 		return true
-	// 	}
-
-	// 	return false
-
-	// })
 	useEffect(() => {
 		window.scroll({
 			top: document.body.offsetHeight,

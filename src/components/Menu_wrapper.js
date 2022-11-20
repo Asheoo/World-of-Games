@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Search from './Search';
-// import logo from '../Misc/wog gray.png';
 import { auth, provider } from '../config/firebase';
-import { signInWithPopup, signInWithRedirect, onAuthStateChanged } from 'firebase/auth';
+import { signInWithRedirect, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { signOut } from 'firebase/auth';
 import HamburgerMenu from './HamburgerMenu';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import PopUp from './PopUp';
 
@@ -21,9 +18,8 @@ function Menu_wrapper() {
 		boxShadow: 'rgba(248, 203, 98, 0.2) 0px -50px 36px -28px inset',
 		color: '#f8cb62'
 	};
-	const [enabled,setEnabled]=useState(false)
+	const [enabled, setEnabled] = useState(false);
 
-	// console.log(location);
 	const signInWithGoogle = async () => {
 		const result = await signInWithRedirect(auth, provider);
 	};
@@ -31,14 +27,13 @@ function Menu_wrapper() {
 		await signOut(auth);
 	};
 
-	const handlePopup=()=>{
-		setEnabled(true)
-	}
+	const handlePopup = () => {
+		setEnabled(true);
+	};
 
-	const removePopUp=()=>{
-		setEnabled(false)
-	}
-	console.log(enabled);
+	const removePopUp = () => {
+		setEnabled(false);
+	};
 	return (
 		<div className="menu-wrapper">
 			<header>
@@ -89,75 +84,19 @@ function Menu_wrapper() {
 			>
 				<Search></Search>
 
-
-				{
-					cartItems<1 ? <NavLink  className="cart-icon">
+				{cartItems < 1 ? (
+					<NavLink className="cart-icon">
 						<PopUp enabled={enabled} text={true} removePopUp={removePopUp}></PopUp>
-					<i onClick={handlePopup} className="fa-solid fa-cart-shopping"></i>
-				</NavLink> : <NavLink to="/cart" className="cart-icon">
-					<i className="fa-solid fa-cart-shopping"></i>
-				</NavLink>
-				}
-				{/* <NavLink to="/cart" className="cart-icon">
-					<i className="fa-solid fa-cart-shopping"></i>
-				</NavLink> */}
-				
+						<i onClick={handlePopup} className="fa-solid fa-cart-shopping"></i>
+					</NavLink>
+				) : (
+					<NavLink to="/cart" className="cart-icon">
+						<i className="fa-solid fa-cart-shopping"></i>
+					</NavLink>
+				)}
+
 				<div className="login">
-					{/* {auth.onAuthStateChanged(function (user) {
-						if (!user) {
-							<p onClick={signInWithGoogle}>Login</p>;
-						} else {
-							<>
-								<h4>{user?.displayName}</h4>
-								<img src={user?.photoURL} alt="#" />
-								<p onClick={signUserOut} className="logout">
-									Sign out
-								</p>
-								{user.email === 'veljkopopovic33@gmail.com' && (
-									<NavLink to="/products">Manage Products</NavLink>
-								)}
-							</>;
-						}
-					})} */}
-					{/* {onAuthStateChanged(auth, (user) => {
-						if (!user) {
-							<p onClick={signInWithGoogle}>Login</p>;
-						} else {
-							<>
-								<h4>{user?.displayName}</h4>
-								<img src={user?.photoURL} alt="#" />
-								<p onClick={signUserOut} className="logout">
-									Sign out
-								</p>
-								{user.email === 'veljkopopovic33@gmail.com' && (
-									<NavLink to="/products">Manage Products</NavLink>
-								)}
-							</>;
-						}
-					})} */}
-						{!user ? (
-						<p onClick={signInWithGoogle}>Login</p>
-					) : (
-						<>
-							<h4>{user?.displayName}</h4>
-							<img src={user?.photoURL} alt="#" />
-							<p onClick={signUserOut} className="logout">
-								Sign out
-							</p>
-							{user.email === 'veljkopopovic33@gmail.com' && (
-								<NavLink to="/products">Manage Products</NavLink>
-							)}
-						</>)}
-					{/* FirebaseAuth.instance
-  .authStateChanges()
-  .listen((User? user) {
-    if (user == null) {
-      print('User is currently signed out!');
-    } else {
-      print('User is signed in!');
-    }
-  }); */}
-					{/* {!user ? (
+					{!user ? (
 						<p onClick={signInWithGoogle}>Login</p>
 					) : (
 						<>
@@ -170,7 +109,7 @@ function Menu_wrapper() {
 								<NavLink to="/products">Manage Products</NavLink>
 							)}
 						</>
-					)} */}
+					)}
 				</div>
 			</div>
 			<a

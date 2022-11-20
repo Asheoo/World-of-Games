@@ -1,25 +1,10 @@
-import React, { Component } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { addCartItem } from '../redux/slices/cartItemSlice';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+
 import { openGame } from '../redux/slices/openGamePageSlice';
 
 function Game({ game,delBorder,handleDelete,handleUpdate }) {
-	// const navigate = useNavigate();
-
-	// const exist = useSelector((state) => state?.cartItem.exist);
-	// console.log(exist);
-
-	// useEffect(() => {
-	// const navigateToCart = () => {
-	// 	navigate('/cart');
-	// }
-	// 	if(exist){
-	// 		navigateToCart()
-	// 	}
-
-	// },[exist]);
 
 	const dispatch = useDispatch();
 
@@ -77,8 +62,6 @@ function Game({ game,delBorder,handleDelete,handleUpdate }) {
 					{game.name} <span>{game.relase_date}</span>
 				</h3>
 				<p>Publisher: {game.publisher}</p>
-{/* 
-				<button>Edit</button> */}
 				{delBorder?
 				<>
 				<button onClick={()=>{handleDelete(game)}} className="manage-btn delete">Delete</button>

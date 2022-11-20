@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import '../css/ProductPage.css';
 import logo from '../Misc/wog earth.png';
 import useDidMountEffect from '../customHooks/useDidMountEffect';
-import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { removeOpenGame } from '../redux/slices/openGamePageSlice';
 import { addCartItem } from '../redux/slices/cartItemSlice';
 import PopUp from './PopUp';
 
-
-
 function ProductPage() {
-	const [game]=useSelector(state=>state?.openGamePage.value);
-	const dispatch=useDispatch()
+	const [game] = useSelector((state) => state?.openGamePage.value);
+	const dispatch = useDispatch();
 	const stayOnPage = useSelector((state) => state?.cartItem.stayOnPage);
 	useDidMountEffect(() => {
 		if (stayOnPage === true) {
@@ -29,19 +25,18 @@ function ProductPage() {
 	};
 
 	const [showPopup, setShowPopup] = useState(false);
-	const color="#09BA7A"
+	const color = '#09BA7A';
 	return (
 		<div className="product-page">
 			<PopUp enabled={showPopup} removePopUp={removePopUp} color={color}></PopUp>
 			<div className="product-page-container">
-				<div className="product-page-img" style={{backgroundImage:`url(${game.img_url})`}}></div>
+				<div className="product-page-img" style={{ backgroundImage: `url(${game.img_url})` }}></div>
 				<div className="logo">
 					<h1>
 						W<img src={logo} alt="" />
 						rld of Games{' '}
 					</h1>
-				<img src={'/assets/wog gray.png'} alt="Logo" className='res-logo' />
-
+					<img src={'/assets/wog gray.png'} alt="Logo" className="res-logo" />
 				</div>
 
 				<div className="product-page-about">
@@ -61,10 +56,22 @@ function ProductPage() {
 				</div>
 				<div className="product-page-btn">
 					<h2>{game.curr_price} $</h2>
-					<button onClick={()=>{dispatch(addCartItem(game))}}>Buy</button>
+					<button
+						onClick={() => {
+							dispatch(addCartItem(game));
+						}}
+					>
+						Buy
+					</button>
 				</div>
 				<div className="empty">
-				<NavLink to={-1} className='continue-shoping' onClick={()=>{dispatch(removeOpenGame())}}>
+					<NavLink
+						to={-1}
+						className="continue-shoping"
+						onClick={() => {
+							dispatch(removeOpenGame());
+						}}
+					>
 						<i className="fa-solid fa-angle-left"></i>
 						<h2>Continue shopping</h2>
 					</NavLink>

@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import '../css/HamburgerMenu.css';
 import Search from './Search';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
 import PopUp from './PopUp';
 
 function HamburgerMenu({ user, signInWithGoogle, signUserOut }) {

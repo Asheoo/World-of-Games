@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import Game from './Game';
-import { useContext } from 'react';
 import { TypeContext } from '../App';
 
 function AllConsoleGames({ games }) {

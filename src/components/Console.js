@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Menu_wrapper from './Menu_wrapper';
 import ConsolePage from './ConsolePage';
-import { Routes,Route } from 'react-router-dom';
 
 function Console() {
 	return (

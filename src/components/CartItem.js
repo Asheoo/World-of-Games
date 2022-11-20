@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeCartItem } from '../redux/slices/cartItemSlice';
 
