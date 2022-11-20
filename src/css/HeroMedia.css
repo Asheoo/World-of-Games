@@ -55,7 +55,7 @@
     .product-page-container{
       display: grid;
       grid-template-columns:  1fr 0.5fr 0.5fr ;
-      grid-template-rows: 20% 70% 30% 15% 10%;
+      grid-template-rows: 20% 70% 30% 15% 10% 40%;
       background-color:#615EF9 ;
       min-height: 100vh;
       width: 100vw;
@@ -143,6 +143,25 @@
       
     } */
 
+    .footer{
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding-left: 0 !important;
+    }
+    .footer-left{
+      height: 200px;
+      align-items: center;
+    }
+    .footer .footer-text{
+      align-items: center;
+      height: 200px;
+      margin-bottom: 20px;
+    }
+
+    .footer .map{
+      width: 100vw;
+    }
   }  
 
 @media (max-width:1080px) {

@@ -53,55 +53,56 @@ function App() {
 		});
 	}, []);
 
-
 	window.addEventListener('scroll', function () {
 		const menuWrapper = document.querySelector('.menu-wrapper');
 		menuWrapper?.classList.toggle('sticky', window.scrollY > 0);
-		const hamburgerMenu=this.document.querySelector('.hamburger-menu');
-		hamburgerMenu?.classList.toggle('sticky',window.scrollY>0)
+		const hamburgerMenu = this.document.querySelector('.hamburger-menu');
+		hamburgerMenu?.classList.toggle('sticky', window.scrollY > 0);
 	});
 
 	return (
-		<Routes>
-			<Route path="/" exact element={<Hero shuffleGames={shuffleGames}></Hero>}></Route>
-			<Route
-				path="/products"
-				element={user?.email === 'veljkopopovic33@gmail.com' && <Products />}
-			></Route>
-			<Route
-				path="/game"
-				element={gamePageExist.length < 1 ? <Navigate to="/" /> : <ProductPage></ProductPage>}
-			></Route>
-			<Route
-				path="/pc/*"
-				element={
-					<TypeContext.Provider value={'pc'}>
-						<Console></Console>
-					</TypeContext.Provider>
-				}
-			></Route>
-			<Route
-				path="/playstation/*"
-				element={
-					<TypeContext.Provider value={'ps'}>
-						<Console></Console>
-					</TypeContext.Provider>
-				}
-			></Route>
-			<Route
-				path="/xbox/*"
-				element={
-					<TypeContext.Provider value={'xbox'}>
-						<Console></Console>
-					</TypeContext.Provider>
-				}
-			></Route>
-			<Route
-				path="/cart"
-				element={cartItems.length < 1 ? <Navigate to={-1} /> : <ShopingCart></ShopingCart>}
-			></Route>
-			<Route path="*" element={<Navigate to="/" replace />}></Route>
-		</Routes>
+		<>
+			<Routes>
+				<Route path="/" exact element={<Hero shuffleGames={shuffleGames}></Hero>}></Route>
+				<Route
+					path="/products"
+					element={user?.email === 'veljkopopovic33@gmail.com' && <Products />}
+				></Route>
+				<Route
+					path="/game"
+					element={gamePageExist.length < 1 ? <Navigate to="/" /> : <ProductPage></ProductPage>}
+				></Route>
+				<Route
+					path="/pc/*"
+					element={
+						<TypeContext.Provider value={'pc'}>
+							<Console></Console>
+						</TypeContext.Provider>
+					}
+				></Route>
+				<Route
+					path="/playstation/*"
+					element={
+						<TypeContext.Provider value={'ps'}>
+							<Console></Console>
+						</TypeContext.Provider>
+					}
+				></Route>
+				<Route
+					path="/xbox/*"
+					element={
+						<TypeContext.Provider value={'xbox'}>
+							<Console></Console>
+						</TypeContext.Provider>
+					}
+				></Route>
+				<Route
+					path="/cart"
+					element={cartItems.length < 1 ? <Navigate to={-1} /> : <ShopingCart></ShopingCart>}
+				></Route>
+				<Route path="*" element={<Navigate to="/" replace />}></Route>
+			</Routes>
+		</>
 	);
 }
 

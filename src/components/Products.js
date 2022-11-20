@@ -31,11 +31,7 @@ function Products() {
 			relase_date: ''
 		});
 	};
-	console.log(productChange);
-
-	const handleInputUpdate = (e) => {
-		console.log(productChange);
-	};
+	
 
 	//read
 	useEffect(() => {
@@ -114,7 +110,6 @@ function Products() {
 			</NavLink>
 
 			<ManageInputs
-				handleInputUpdate={handleInputUpdate}
 				productChange={productChange}
 				handleGameChange={handleGameChange}
 				writeToDataBase={writeToDataBase}
