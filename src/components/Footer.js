@@ -7,6 +7,8 @@ function Footer() {
 		googleMapsApiKey:process.env.REACT_APP_API_KEY
 	});
 	return (
+
+        
 		<div className="footer">
 			<div className="footer-left">
                 <div className='footer-logo'>
