@@ -4,7 +4,7 @@ import '../css/Footer.css';
 
 function Footer() {
 	const { isLoaded } = useLoadScript({
-		googleMapsApiKey: 'AIzaSyAvHq4WZmf6W2oZln3Vm76AXFKXd2usNz4'
+		googleMapsApiKey:process.env.REACT_APP_API_KEY
 	});
 	return (
 		<div className="footer">
