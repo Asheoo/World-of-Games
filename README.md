@@ -1,6 +1,6 @@
 # Name
 
-World of games
+World of Games
 
 ## Link
 
@@ -11,31 +11,31 @@ https://amazing-starburst-e89c66.netlify.app/
 Application theme is game store.Application is made for browsing and also buying games.
 
 
-Technologies used in this application:
+## Technologies used in this application
 
-Html
+### `HTML`
 
-Css
+### `CSS`
 
-Javascript
+### `Javascript`
 
-React
+### `React`
 
-Redux/toolkit
+### `Redux/toolkit`
 
-Firebase/Authentication
+### `Firebase/Authentication`
 
-Firebase/Realtime Database-cloud-hosted database in which data is stored as JSON
+### `Firebase/Realtime Database-cloud` - hosted database in which data is stored as JSON
 
-Netlify-deploy
+### `Netlify-deploy`
 
-Google map api
+### `Google map api`
 
-Yup-used for form validation
+### `Yup-used for form validation`
 
-react-hook-form/useFrom
+### `react-hook-form/useFrom`
 
-react-select/select-used for making multiselect input control
+### `react-select/select` - used for making multiselect input control
 
 
 ## Available Scripts
