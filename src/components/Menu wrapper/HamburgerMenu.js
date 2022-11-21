@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import '../css/HamburgerMenu.css';
-import Search from './Search';
-import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import PopUp from './PopUp';
+import { NavLink } from 'react-router-dom';
+import '../../css/HamburgerMenu.css';
+import PopUp from '../PopUp';
+import Search from './Search';
 
 function HamburgerMenu({ user, signInWithGoogle, signUserOut }) {
 	const cartItems = useSelector((state) => state?.cartItem.value);
@@ -55,7 +55,7 @@ function HamburgerMenu({ user, signInWithGoogle, signUserOut }) {
 					) : (
 						<>
 							<h4>{user?.displayName}</h4>
-							<img src={user?.photoURL} alt="#" />
+							<img src={user?.photoURL} alt="#" referrerPolicy="no-referrer" />
 							<p onClick={signUserOut} className="logout">
 								Sign out
 							</p>

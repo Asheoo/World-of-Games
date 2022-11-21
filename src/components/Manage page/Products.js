@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { db } from '../config/firebase';
-import { uid } from 'uid';
-import { set, ref, onValue, remove, update } from 'firebase/database';
-import Game from './Game';
-import '../css/ManageProducts.css';
-import ManageInputs from './ManageInputs';
+import { onValue, ref, remove, set, update } from 'firebase/database';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { uid } from 'uid';
+import { db } from '../../config/firebase';
+import '../../css/ManageProducts.css';
+import Game from '../Game';
+import ManageInputs from './ManageInputs';
 
 function Products() {
 	const [productChange, setProductChange] = useState({});

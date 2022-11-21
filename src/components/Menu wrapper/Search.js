@@ -1,7 +1,7 @@
-import { useState, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import '../css/Search.css';
-import { openGame } from '../redux/slices/openGamePageSlice';
+import { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import '../../css/Search.css';
+import { openGame } from '../../redux/slices/openGamePageSlice';
 
 function Search() {
 	//STAVITI KEY SVAKOM ELEMENTU  KAD SE ISIPSUJE, IZBACUJE EROR KAD SE PRETRAZUJE
@@ -52,9 +52,9 @@ function Search() {
 			</div>
 			{filteredData.length != 0 && (
 				<div className="dataResult">
-					{filteredData.slice(0, 15).map((value) => {
+					{filteredData.slice(0, 15).map((value) => { //show only 15 item when searching even if there is more
 						return (
-							<div
+							<div key={value.id}
 								className="dataItem"
 								onClick={(e) => {
 									dispatch(openGame(value));

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-
+//dont load app on first render
 const useDidMountEffect = (func, deps) => {
     const didMount = useRef(false);
 

@@ -7,6 +7,8 @@
 
 .shop-bg {
 	background-color: #ebebeb;
+	position: relative;
+	/* overflow-x:visible; */
 }
 
 .shoping-cart {
@@ -218,11 +220,10 @@
 	margin-right: 44px;
 }
 
-.summary {
+.shop-bg .summary {
 	flex: 1 1 0;
 	background-color: #f8f8f8;
 	padding: 70px;
-	position: relative;
 	letter-spacing: 1.5px;
 	display: flex;
 	flex-direction: column;

@@ -1,7 +1,7 @@
 import { signInWithPopup } from 'firebase/auth';
-import { auth, provider } from '../config/firebase';
+import { auth, provider } from '../../config/firebase';
 import { useDispatch } from 'react-redux';
-import { removeAllCartItems } from '../redux/slices/cartItemSlice';
+import { removeAllCartItems } from '../../redux/slices/cartItemSlice';
 import { NavLink } from 'react-router-dom';
 
 function SummaryPopUp({ user, setToggle }) {
@@ -13,7 +13,8 @@ function SummaryPopUp({ user, setToggle }) {
 	return (
 		<div>
 			<div className="popup">
-				{user ? (
+			
+				{user ? (   //Checking if user is logged in
 					<>
 						<h3>Successful purchase</h3>
 						<NavLink to="/" onClick={() => {setToggle(false);dispatch(removeAllCartItems())}}>OK</NavLink>

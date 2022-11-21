@@ -4,7 +4,7 @@ function Imgs({ shuffleGames }) {
 	const allWrapGames = shuffleGames
 		.filter((game) => game.info)
 		.map((game, index) => {
-			const firstIndex=index!==0? "slide" : "slide first"
+			const firstIndex=index!==0? "slide" : "slide first" //checking game if it is first, because first game will have different class
 			return (
 				<div  className={firstIndex} key={game.id}>
 

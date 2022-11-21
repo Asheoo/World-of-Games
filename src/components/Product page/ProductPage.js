@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import '../css/ProductPage.css';
-import logo from '../Misc/wog earth.png';
-import useDidMountEffect from '../customHooks/useDidMountEffect';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { removeOpenGame } from '../redux/slices/openGamePageSlice';
-import { addCartItem } from '../redux/slices/cartItemSlice';
-import PopUp from './PopUp';
+import '../../css/ProductPage.css';
+import useDidMountEffect from '../../customHooks/useDidMountEffect';
+import logo from '../../Misc/wog earth.png';
+import { addCartItem } from '../../redux/slices/cartItemSlice';
+import { removeOpenGame } from '../../redux/slices/openGamePageSlice';
+import PopUp from '../PopUp';
 
 function ProductPage() {
+	//getting game that is clicked
 	const [game] = useSelector((state) => state?.openGamePage.value);
 	const dispatch = useDispatch();
 	const stayOnPage = useSelector((state) => state?.cartItem.stayOnPage);
@@ -17,7 +18,6 @@ function ProductPage() {
 			setShowPopup(true);
 		}
 
-		console.log('Ostani na stranici', showPopup);
 	}, [stayOnPage === true]);
 	const removePopUp = (e) => {
 		setShowPopup(e);
@@ -25,6 +25,7 @@ function ProductPage() {
 	};
 
 	const [showPopup, setShowPopup] = useState(false);
+	//sending color to popup because purple dont look good on product page
 	const color = '#09BA7A';
 	return (
 		<div className="product-page">

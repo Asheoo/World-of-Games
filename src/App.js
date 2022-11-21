@@ -1,18 +1,18 @@
-import React, { useEffect, useState, createContext } from 'react';
-import Hero from './components/Hero';
-import { useSelector, useDispatch } from 'react-redux';
-import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
-import ShopingCart from './components/ShopingCart';
-import { addGame } from './redux/slices/gameSlice';
-import Console from './components/Console';
-import ProductPage from './components/ProductPage';
-import useDidMountEffect from './customHooks/useDidMountEffect';
-import Products from './components/Products';
+import React, { createContext, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import ShopingCart from './components/Cart page/ShopingCart';
+import Console from './components/Console pages/Console';
+import Hero from './components/First page/Hero';
+import Products from './components/Manage page/Products';
+import ProductPage from './components/Product page/ProductPage';
 import './css/HeroMedia.css';
+import useDidMountEffect from './customHooks/useDidMountEffect';
+import { addGame } from './redux/slices/gameSlice';
 
-import { db, auth } from './config/firebase';
-import { ref, onValue } from 'firebase/database';
+import { onValue, ref } from 'firebase/database';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth, db } from './config/firebase';
 
 export const TypeContext = createContext();
 function App() {
@@ -22,6 +22,8 @@ function App() {
 	const gamePageExist = useSelector((state) => state?.openGamePage.value);
 	const exist = useSelector((state) => state?.cartItem.exist);
 
+
+	//sending user to cart if game dont exist in cart
 	useEffect(() => {
 		const navigateToCart = () => {
 			navigate('/cart');
@@ -29,6 +31,8 @@ function App() {
 
 		navigateToCart();
 	}, [exist]);
+
+	
 	useDidMountEffect(() => {
 		const navigateToGamePage = () => {
 			navigate('/game');
@@ -47,12 +51,14 @@ function App() {
 		onValue(ref(db), (snapshop) => {
 			const data = snapshop.val();
 			if (data !== null) {
+				//Taking games from firebase
 				setGames(shuffle(Object.values(data)));
 				dispatch(addGame(Object.values(data)));
 			}
 		});
 	}, []);
 
+	//Menu effect
 	window.addEventListener('scroll', function () {
 		const menuWrapper = document.querySelector('.menu-wrapper');
 		menuWrapper?.classList.toggle('sticky', window.scrollY > 0);

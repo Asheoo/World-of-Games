@@ -1,6 +1,6 @@
 import { useLoadScript } from '@react-google-maps/api';
+import '../../css/Footer.css';
 import Map from './Map';
-import '../css/Footer.css';
 
 function Footer() {
 	const { isLoaded } = useLoadScript({

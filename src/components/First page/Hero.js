@@ -1,10 +1,9 @@
+import '../../css/Hero.css';
+import Footer from '../Footer/Footer';
+import Menu_wrapper from '../Menu wrapper/Menu_wrapper';
 import Imgs from './Imgs';
-import Menu_wrapper from './Menu_wrapper';
 import NavigationManual from './NavigationManual';
 import PageOne from './PageOne';
-import '../css/Hero.css';
-import Footer from './Footer';
-
 function Hero({ shuffleGames }) {
 	return (
 		<>

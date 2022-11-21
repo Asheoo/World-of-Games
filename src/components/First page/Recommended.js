@@ -1,4 +1,4 @@
-import Game from './Game';
+import Game from '../Game';
 
 function Recommended({ shuffleGames }) {
 	const allGames = shuffleGames.slice(0, 5).map((game) => {

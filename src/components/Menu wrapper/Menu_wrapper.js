@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import Search from './Search';
-import { auth, provider } from '../config/firebase';
 import { signInWithRedirect, signOut } from 'firebase/auth';
+import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import HamburgerMenu from './HamburgerMenu';
 import { useSelector } from 'react-redux';
-import PopUp from './PopUp';
+import { NavLink } from 'react-router-dom';
+import { auth, provider } from '../../config/firebase';
+import PopUp from '../PopUp';
+import HamburgerMenu from './HamburgerMenu';
+import Search from './Search';
 
 function Menu_wrapper() {
 	const cartItems = useSelector((state) => state?.cartItem.value);
+	//getting current location and setting style if current location is true
 	const location = window.location.href;
 	const [menu, setMenu] = useState(false);
 	const [user] = useAuthState(auth);
@@ -101,7 +102,7 @@ function Menu_wrapper() {
 					) : (
 						<>
 							<h4>{user?.displayName}</h4>
-							<img src={user?.photoURL} alt="#" />
+							<img src={user?.photoURL} alt="#" referrerPolicy="no-referrer" />
 							<p onClick={signUserOut} className="logout">
 								Sign out
 							</p>

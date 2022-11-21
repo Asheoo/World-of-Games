@@ -66,9 +66,12 @@ function ManageInputs({ handleGameChange, productChange, writeToDataBase, isEdit
 		resolver: yupResolver(schema)
 	});
 
+	//taking previous values from game
 	useEffect(() => {
 		reset(productChange);
 	}, [productChange]);
+
+	
 	const onSubmit = (data) => {
 		isEdit ? handleGameChange(data) : writeToDataBase(data);
 	};
@@ -101,7 +104,7 @@ function ManageInputs({ handleGameChange, productChange, writeToDataBase, isEdit
 					<input
 						type="text"
 						name="publisher"
-						defaultValue={productChange?.publisher || ''}
+						// defaultValue={productChange?.publisher || ''}
 						{...register('publisher')}
 					/>
 					<p>Publisher</p>
@@ -111,7 +114,7 @@ function ManageInputs({ handleGameChange, productChange, writeToDataBase, isEdit
 					<input
 						type="number"
 						name="relase_date"
-						defaultValue={productChange?.relase_date || ''}
+						// defaultValue={productChange?.relase_date || ''}
 						{...register('relase_date')}
 					/>
 					<p>Relase date</p>

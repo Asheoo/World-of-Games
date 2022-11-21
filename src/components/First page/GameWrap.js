@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addCartItem } from '../redux/slices/cartItemSlice';
+import { addCartItem } from '../../redux/slices/cartItemSlice';
 
 function GameWrap({ game }) {
 	const dispatch = useDispatch();

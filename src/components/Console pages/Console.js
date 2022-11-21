@@ -1,6 +1,6 @@
-import Menu_wrapper from './Menu_wrapper';
+import Footer from '../Footer/Footer';
+import Menu_wrapper from '../Menu wrapper/Menu_wrapper';
 import ConsolePage from './ConsolePage';
-import Footer from './Footer';
 
 function Console() {
 	return (

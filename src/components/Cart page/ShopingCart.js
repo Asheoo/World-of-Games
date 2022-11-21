@@ -1,16 +1,19 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import CartItem from './CartItem';
-import '../css/Shop.css';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import '../../css/Shop.css';
+import { removeOpenGame } from '../../redux/slices/openGamePageSlice';
+import Footer from '../Footer/Footer';
+import CartItem from './CartItem';
 import Summary from './Summary';
-import { removeOpenGame } from '../redux/slices/openGamePageSlice';
-import Footer from './Footer';
+
 function ShopingCart() {
 	const dispatch = useDispatch();
 	const scrollDown = useSelector((state) => state?.cartItem.exist);
 	const cartItems = useSelector((state) => state?.cartItem.value);
 	let numberOfItems = 0;
+
+	//scroll down when new item is added to cart
 	useEffect(() => {
 		window.scroll({
 			top: document.body.offsetHeight,
@@ -49,7 +52,7 @@ function ShopingCart() {
 						<NavLink
 							to={-1}
 							className="continue-shoping"
-							onClick={() => {
+							onClick={() => { //if user first open Product Page remove that game so site reddirect him to previous page and not to product page
 								dispatch(removeOpenGame());
 							}}
 						>

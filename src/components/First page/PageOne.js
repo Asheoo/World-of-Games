@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import useDidMountEffect from '../../customHooks/useDidMountEffect';
+import PopUp from '../PopUp';
 import NewGames from './NewGames';
 import Recommended from './Recommended';
-import PopUp from './PopUp';
-import { useSelector } from 'react-redux';
-import useDidMountEffect from '../customHooks/useDidMountEffect';
 
 
 function PageOne({ shuffleGames }) {
@@ -15,12 +15,14 @@ function PageOne({ shuffleGames }) {
 			setShowPopup(true);
 		}
 
-		console.log('Ostani na stranici', showPopup);
+		
 	}, [stayOnPage === true]);
+
 	const removePopUp = (e) => {
 		setShowPopup(e);
 		console.log('usao', e);
 	};
+	
 	return (
 		<div className="container">
 			<PopUp enabled={showPopup} removePopUp={removePopUp}></PopUp>

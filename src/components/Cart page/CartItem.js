@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { removeCartItem } from '../redux/slices/cartItemSlice';
+import { removeCartItem } from '../../redux/slices/cartItemSlice';
 
 function CartItem({ game, index }) {
 	const dispatch = useDispatch();
@@ -14,7 +14,9 @@ function CartItem({ game, index }) {
 		})
 		.map((console) => {
 			return (
-				<label key={Math.floor(Math.random() * 100)}>
+				<label 
+				key={Math.floor(Math.random() * 10000)}
+				>
 					<div className="cart-radio" >
 						<input type="radio" id={game.id} name={game.name} value={console} defaultChecked />
 						<p>{console}</p>

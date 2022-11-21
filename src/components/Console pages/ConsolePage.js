@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import '../css/Computer.css';
-import Category from './Category';
 import { useSelector } from 'react-redux';
-import PopUp from './PopUp';
-import useDidMountEffect from '../customHooks/useDidMountEffect';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import '../../css/Computer.css';
+import useDidMountEffect from '../../customHooks/useDidMountEffect';
+import PopUp from '../PopUp';
 import AllConsoleGames from './AllConsoleGames';
+import Category from './Category';
 import NewConsoleGames from './NewConsoleGames';
 import SaleConsoleGames from './SaleConsoleGames';
 import SpecialGames from './SpecialGames';
@@ -18,7 +18,7 @@ function ConsolePage() {
 			setShowPopup(true);
 		}
 
-		console.log('Ostani na stranici', showPopup);
+		
 	}, [stayOnPage === true]);
 	const removePopUp = (e) => {
 		setShowPopup(e);
@@ -26,14 +26,12 @@ function ConsolePage() {
 
 	const games = useSelector((state) => state?.game.value);
 
-	const categoryChoice = (e) => {
-		return e;
-	};
+
 
 	return (
 		<div className="computer-container">
 			<PopUp enabled={showPopup} removePopUp={removePopUp}></PopUp>
-			<Category categoryChoice={categoryChoice}></Category>
+			<Category ></Category>
 
 			<Routes>
 				<Route path=":all/all" element={<AllConsoleGames games={games}></AllConsoleGames>}></Route>

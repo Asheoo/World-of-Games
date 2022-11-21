@@ -1,8 +1,9 @@
 import { useContext } from 'react';
-import Game from './Game';
-import { TypeContext } from '../App';
+import { TypeContext } from '../../App';
+import Game from '../Game';
 
 function AllConsoleGames({ games }) {
+	//context means for which console to show(pc/ps/xbox)
 	const type = useContext(TypeContext);
 	const pcGames = games[0]
 		?.filter((game) => game[type])
