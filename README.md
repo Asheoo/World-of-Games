@@ -23,17 +23,17 @@ Application theme is game store.Application is made for browsing and also buying
 
 ### `Redux/toolkit`
 
-### `Firebase/Authentication`
+### `Firebase/Authentication` - used for authentication with google account
 
 ### `Firebase/Realtime Database-cloud` - hosted database in which data is stored as JSON
 
-### `Netlify-deploy`
+### `Netlify` - deploy
 
-### `Google map api`
+### `Google map api` - google maps
 
-### `Yup-used for form validation`
+### `Yup` - used for form validation
 
-### `react-hook-form/useFrom`
+### `react-hook-form/useForm` - form
 
 ### `react-select/select` - used for making multiselect input control
 
