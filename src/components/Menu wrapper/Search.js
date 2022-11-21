@@ -4,7 +4,7 @@ import '../../css/Search.css';
 import { openGame } from '../../redux/slices/openGamePageSlice';
 
 function Search() {
-	//STAVITI KEY SVAKOM ELEMENTU  KAD SE ISIPSUJE, IZBACUJE EROR KAD SE PRETRAZUJE
+	
 	const dispatch = useDispatch();
 	const ref = useRef(null);
 	const [filteredData, setFilteredData] = useState([]);
