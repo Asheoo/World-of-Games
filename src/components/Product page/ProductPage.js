@@ -40,6 +40,10 @@ function ProductPage() {
 			dispatch(setStayOnPage())
 		}
 	}
+//fixing bug when back button is clicked
+	window.onpopstate=()=>{
+		dispatch(removeOpenGame());
+	}
 
 	return (
 		<div className="product-page">
