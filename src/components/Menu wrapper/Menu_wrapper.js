@@ -2,7 +2,7 @@ import { signInWithRedirect, signOut } from 'firebase/auth';
 import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { auth, provider } from '../../config/firebase';
 import PopUp from '../PopUp';
 import HamburgerMenu from './HamburgerMenu';
@@ -10,6 +10,7 @@ import Search from './Search';
 
 function Menu_wrapper() {
 	const cartItems = useSelector((state) => state?.cartItem.value);
+	const navigate=useNavigate()
 	//getting current location and setting style if current location is true
 	const location = window.location.href;
 	const [menu, setMenu] = useState(false);
@@ -38,7 +39,7 @@ function Menu_wrapper() {
 	return (
 		<div className="menu-wrapper">
 			<header>
-				<img src={'/assets/wog gray.png'} alt="Logo" />
+				<img onClick={()=>navigate('/')} src={'/assets/wog gray.png'} alt="Logo" />
 			</header>
 			<div className="menu">
 				<ul>
