@@ -12,16 +12,19 @@ export const cartItemSlice = createSlice({
 	initialState,
 	reducers: {
 		addCartItem: (state, action) => {
-			const inCart = state.value.find((item) => item.id === action.payload.id);
-			if (!inCart) {
-				state.value.push(action.payload);
+			// const inCart = state.value.find((item) => item.id === action.payload.id);
+			state.value.push(action.payload);
+			state.exist = !state.exist;
+			state.stayOnPage = false;
+			// if (!inCart) {
 
-				state.exist = !state.exist;
-				state.stayOnPage = false;
-			} else {
-				state.stayOnPage = true;
-			}
+			// } else {
+			// 	state.stayOnPage = true;
+			// }
 			localStorage.setItem('cartItems', JSON.stringify(state.value.map(item=>item)))
+		},
+		setStayOnPage:(state)=>{
+			state.stayOnPage=true
 		},
 		removeCartItem: (state, action) => {
 			state.value.splice(action.payload, 1);
@@ -37,6 +40,6 @@ export const cartItemSlice = createSlice({
 	}
 });
 
-export const { addCartItem, removeCartItem, popUpOk, removeAllCartItems } = cartItemSlice.actions;
+export const { addCartItem, removeCartItem, popUpOk, removeAllCartItems,setStayOnPage } = cartItemSlice.actions;
 
 export default cartItemSlice.reducer;

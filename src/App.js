@@ -24,13 +24,13 @@ function App() {
 
 
 	//sending user to cart if game dont exist in cart
-	useEffect(() => {
-		const navigateToCart = () => {
-			navigate('/cart');
-		};
+	// useEffect(() => {
+	// 	const navigateToCart = () => {
+	// 		navigate('/cart');
+	// 	};
 
-		navigateToCart();
-	}, [exist]);
+	// 	navigateToCart();
+	// }, [exist]);
 
 	
 	useDidMountEffect(() => {

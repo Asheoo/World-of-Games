@@ -1,8 +1,21 @@
-import { useDispatch } from 'react-redux';
-import { addCartItem } from '../../redux/slices/cartItemSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { addCartItem, setStayOnPage } from '../../redux/slices/cartItemSlice';
 
 function GameWrap({ game }) {
 	const dispatch = useDispatch();
+	const navigate=useNavigate();
+	const cartItems=useSelector(value=>value?.cartItem.value)
+
+	const checkIfGameExist=()=>{
+		const inCart = cartItems.find((item) => item.id === game.id);
+		if(!inCart){
+			dispatch(addCartItem(game));
+			navigate('/cart');
+		}else{
+			dispatch(setStayOnPage())
+		}
+	}
 
 	return (
 		<div>
@@ -16,7 +29,8 @@ function GameWrap({ game }) {
 						<p>{game.curr_price}&euro;</p>
 						<button
 							onClick={(e) => {
-								dispatch(addCartItem(game));
+								checkIfGameExist()
+								// dispatch(addCartItem(game));
 							}}
 						>
 							buy

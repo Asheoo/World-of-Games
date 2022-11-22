@@ -1,17 +1,20 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import '../../css/ProductPage.css';
 import useDidMountEffect from '../../customHooks/useDidMountEffect';
-import { addCartItem } from '../../redux/slices/cartItemSlice';
+import { addCartItem, setStayOnPage } from '../../redux/slices/cartItemSlice';
 import { removeOpenGame } from '../../redux/slices/openGamePageSlice';
 import PopUp from '../PopUp';
+
 
 function ProductPage() {
 	//getting game that is clicked
 	const [game] = useSelector((state) => state?.openGamePage.value);
 	const dispatch = useDispatch();
+	const navigate=useNavigate();
 	const stayOnPage = useSelector((state) => state?.cartItem.stayOnPage);
+	const cartItems=useSelector((state)=>state?.cartItem.value)
 	useDidMountEffect(() => {
 		if (stayOnPage === true) {
 			setShowPopup(true);
@@ -26,6 +29,18 @@ function ProductPage() {
 	const [showPopup, setShowPopup] = useState(false);
 	//sending color to popup because purple dont look good on product page
 	const color = '#09BA7A';
+
+
+	const checkIfGameExist=()=>{
+		const inCart = cartItems.find((item) => item.id === game.id);
+		if(!inCart){
+			dispatch(addCartItem(game));
+			navigate('/cart');
+		}else{
+			dispatch(setStayOnPage())
+		}
+	}
+
 	return (
 		<div className="product-page">
 			<PopUp enabled={showPopup} removePopUp={removePopUp} color={color}></PopUp>
@@ -58,7 +73,7 @@ function ProductPage() {
 					<h2>{game.curr_price} $</h2>
 					<button
 						onClick={() => {
-							dispatch(addCartItem(game));
+							checkIfGameExist()
 						}}
 					>
 						Buy
