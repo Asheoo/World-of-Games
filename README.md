@@ -8,7 +8,7 @@ https://amazing-starburst-e89c66.netlify.app/
 
 ## Project Description
 
-Application theme is game store.Application is made for browsing and also buying games.
+Application theme is game store. Application is made for browsing and also buying games.
 
 
 ## Technologies used in this application

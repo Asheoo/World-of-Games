@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const value = localStorage.getItem("cartItems") != null ? JSON.parse(localStorage.getItem("cartItems")):[]
+
 const initialState = {
-	value: [],
+	value: value,
 	exist: false,
 	stayOnPage: false
 };
@@ -19,9 +21,11 @@ export const cartItemSlice = createSlice({
 			} else {
 				state.stayOnPage = true;
 			}
+			localStorage.setItem('cartItems', JSON.stringify(state.value.map(item=>item)))
 		},
 		removeCartItem: (state, action) => {
 			state.value.splice(action.payload, 1);
+			localStorage.setItem('cartItems', JSON.stringify(state.value.map(item=>item)))
 		},
 		popUpOk: (state, action) => {
 			state.stayOnPage = action.payload;
