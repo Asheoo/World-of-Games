@@ -76,7 +76,7 @@ function Menu_wrapper() {
 			<div
 				className="right-menu"
 				style={
-					user?.email === 'veljkopopovic33@gmail.com'
+					user?.email === 'worldofgamesauth404@gmail.com'
 						? { width: '78vh' }
 						: user
 						? { width: '65vh' }
@@ -106,7 +106,7 @@ function Menu_wrapper() {
 							<p onClick={signUserOut} className="logout">
 								Sign out
 							</p>
-							{user.email === 'veljkopopovic33@gmail.com' && (
+							{user.email === 'worldofgamesauth404@gmail.com' && (
 								<NavLink to="/products">Manage Products</NavLink>
 							)}
 						</>

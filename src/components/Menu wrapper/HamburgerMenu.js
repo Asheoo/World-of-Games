@@ -59,7 +59,7 @@ function HamburgerMenu({ user, signInWithGoogle, signUserOut }) {
 							<p onClick={signUserOut} className="logout">
 								Sign out
 							</p>
-							{user.email === 'veljkopopovic33@gmail.com' && (
+							{user.email === 'worldofgamesauth404@gmail.com' && (
 								<NavLink to="/products">Manage Products</NavLink>
 							)}
 						</>

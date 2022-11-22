@@ -72,7 +72,7 @@ function App() {
 				<Route path="/" exact element={<Hero shuffleGames={shuffleGames}></Hero>}></Route>
 				<Route
 					path="/products"
-					element={user?.email === 'veljkopopovic33@gmail.com' && <Products />}
+					element={user?.email === 'worldofgamesauth404@gmail.com' && <Products />}
 				></Route>
 				<Route
 					path="/game"
