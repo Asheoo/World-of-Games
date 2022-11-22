@@ -576,7 +576,7 @@ margin-bottom: 30px;
 }
 
 .card-img {
-	background-image: url(/src/Misc/Biomutant.jpg);
+	/* background-image: url(/src/Misc/Biomutant.jpg); */
 	background-size: cover;
 	background-position: center;
 	background-color: #615ef9;

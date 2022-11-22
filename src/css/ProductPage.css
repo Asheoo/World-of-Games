@@ -29,7 +29,7 @@ height: 100vh;
 }
 
 .product-page-img{
-    background-image: url(/src/Misc/Biomutant.jpg);
+    /* background-image: url(/src/Misc/Biomutant.jpg); */
     background-size: 600px 600px;
     background-position:center;
     background-repeat: no-repeat;

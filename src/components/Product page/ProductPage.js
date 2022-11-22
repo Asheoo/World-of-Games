@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import '../../css/ProductPage.css';
 import useDidMountEffect from '../../customHooks/useDidMountEffect';
-import logo from '../../Misc/wog earth.png';
 import { addCartItem } from '../../redux/slices/cartItemSlice';
 import { removeOpenGame } from '../../redux/slices/openGamePageSlice';
 import PopUp from '../PopUp';
@@ -34,8 +33,8 @@ function ProductPage() {
 				<div className="product-page-img" style={{ backgroundImage: `url(${game.img_url})` }}></div>
 				<div className="logo">
 					<h1>
-						W<img src={logo} alt="" />
-						rld of Games{' '}
+						W<img src={'/assets/wog earth.png'} alt="" />
+						rld of Games
 					</h1>
 					<img src={'/assets/wog gray.png'} alt="Logo" className="res-logo" />
 				</div>
